@@ -24,9 +24,9 @@ function SideBarIcon({ page }) {
 function SideBar() {
 
     return (
-        <aside className="col-auto flex w-[4.2vw] min-w-[40px] flex-col justify-between py-2" style={{ backgroundColor: constants.compColor1 }} height={ constants.mainHeight }>
+        <aside className="col-auto flex flex-col justify-between" style={{ backgroundColor: constants.compColor1, paddingRight: 0 }} height={ constants.mainHeight }>
             
-            <div className="flex flex-col items-start justify-center gap-y-1 md:gap-y-3">
+            <div className="flex flex-col items-start justify-center gap-y-1 ">
                 {/* Main Page */}
                 <SideBarIcon page="home" />
 
@@ -41,7 +41,7 @@ function SideBar() {
 
             </div>
 
-            <div className="flex flex-col items-center justify-center gap-y-3" style={{ bottom: constants.bottomIconStart, position: 'absolute' }}>
+            <div className="flex flex-col items-center justify-center" style={{ bottom: constants.bottomIconStart, position: 'absolute' }}>
 
                 {/* About Me */}
                 <SideBarIcon page="about" />

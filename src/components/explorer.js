@@ -24,7 +24,7 @@ function FileExplorerItem({ page }) {
 function FileExplorer() {
 
     return(
-        <div className="col-2 flex flex-col" style={{ backgroundColor: constants.compColor1, maxHeight: constants.mainHeight }}>
+        <div className="col-2 flex flex-col" style={{ backgroundColor: constants.compColor1, maxHeight: constants.mainHeight, paddingLeft: 0 }}>
             
             <div className='row'>
                 <div className="col" style={{ maxWidth: '10px' }}></div>
