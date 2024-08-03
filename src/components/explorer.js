@@ -1,6 +1,6 @@
 import { Icon } from '@iconify/react';
-import * as constants from './constants';
-import pages from '../index';
+import * as constants from '../constants';
+import {pages} from '../constants.js';
 import '../App.css';
 
 function FileExplorerItem({ page }) {

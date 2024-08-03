@@ -23,3 +23,40 @@ export const secondaryFontSize = '0.7em';
 export const fileFileNameGap = '10px';     // gap between the file type icon and file name
 export const fileTypeIconSize = '14px';    // size of file type icons
 export const bottomIconStart = parseInt(footerHeight.match(/(\d+)/));   // bottom icons start at the footer height (as an integer not in px)
+
+export const pages = {
+	'home': {
+		label: "home.html",
+		icon: "vscode-icons:file-type-html",
+		sidebarIcon: "mdi:files",
+		url: "/"
+	},
+	'github': {
+		label: "github.js",
+		icon: "logos:javascript",
+		sidebarIcon: "iconoir:github",
+		url: "/github"
+	},
+	'projects': {
+		label: "projects.py",
+		icon: "logos:python",
+		sidebarIcon: "grommet-icons:projects",
+		url: "/projects"
+	},
+	'contact': {
+		label: "contact.c",
+		icon: "devicon:c",
+		sidebarIcon: "fluent:contact-card-28-regular",
+		url: "/contact"
+	},
+	'about': {
+		icon: "iconamoon:profile-circle-fill",
+		sidebarIcon: "iconamoon:profile-circle-fill",
+		url: "/about"
+	},
+	'settings': {
+		icon: "material-symbols:settings",
+		sidebarIcon: "material-symbols:settings",
+		url: "/settings"
+	}
+}
