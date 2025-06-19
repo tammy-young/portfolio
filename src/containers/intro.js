@@ -14,7 +14,9 @@ const IntroSection = () => {
         <h4>Passionate software developer/engineer based in Canada.</h4>
         <div className="flex flex-row gap-2">
           <Button variant="contained"
-            sx={{ textTransform: 'capitalize', backgroundColor: Colours.mainPurple, color: '#000' }}>
+            sx={{ textTransform: 'capitalize', backgroundColor: Colours.mainPurple, color: '#000' }}
+            onClick={() => window.open('/docs/Resume_Tammy_Young.pdf', '_blank')}
+            >
             Resume
           </Button>
           <Button variant="contained"
