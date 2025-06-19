@@ -22,7 +22,7 @@ function ProjectModal({ project, handleClose }) {
       <div className='bg-neutral-100 p-2 rounded-full w-max cursor-pointer'>
         <CloseIcon onClick={handleClose} />
       </div>
-      <img src={project.image} className='top-0'></img>
+      <img src={project.image} className='top-0' alt={project.name}></img>
       <div className='flex flex-col gap-2'>
         <div className='flex flex-row gap-2 items-center'>
           <h2 className='text-3xl font-bold pt-4'>{project.name}</h2>
@@ -47,7 +47,7 @@ function Project({ project }) {
     <div className="border rounded text-left sm:w-[30%] w-full cursor-pointer h-[400px]">
       <div onClick={handleOpen} className='flex flex-col justify-between h-full'>
         <div className='flex justify-center items-center content-center text-center h-full'>
-          <img src={project.image} className='h-min'></img>
+          <img src={project.image} className='h-min' alt={project.name}></img>
         </div>
         <div className="p-4">
           <h2 className="text-2xl font-bold">{project.name}</h2>

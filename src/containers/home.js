@@ -3,6 +3,7 @@ import IntroSection from "./intro";
 import AboutSection from "./about";
 import Projects from "./projects";
 import Experience from "./experience";
+import Connect from "./connect";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <AboutSection />
       <Projects />
       <Experience />
+      <Connect />
     </div>
   );
 }
