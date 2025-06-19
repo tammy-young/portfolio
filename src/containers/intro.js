@@ -1,0 +1,38 @@
+import Button from '@mui/material/Button';
+import Colours from '../lib/colours';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+
+const IntroSection = () => {
+  return (
+    <div className="flex sm:flex-row flex-col sm:justify-around px-[5%]">
+      <div className="flex flex-col justify-center gap-3">
+        <div>
+          <h4 className="">Nice to meet you,</h4>
+          <h1 className="text-6xl font-bold w-max">I'm Tammy</h1>
+        </div>
+        <h4>Passionate software developer/engineer based in Canada.</h4>
+        <div className="flex flex-row gap-2">
+          <Button variant="contained"
+            sx={{ textTransform: 'capitalize', backgroundColor: Colours.mainPurple, color: '#000' }}>
+            Resume
+          </Button>
+          <Button variant="contained"
+            onClick={() => window.open('https://www.linkedin.com/in/tammyqyoung/', '_blank')}
+          >
+            <LinkedInIcon />
+          </Button>
+          <Button variant="contained"
+            sx={{ backgroundColor: '#000', color: '#fff' }}
+            onClick={() => window.open('https://github.com/tammy-young/', '_blank')}
+          >
+            <GitHubIcon />
+          </Button>
+        </div>
+      </div>
+      <img src="/images/headshot.jpeg" className="w-1/3 rounded-full"></img>
+    </div>
+  )
+}
+
+export default IntroSection;
