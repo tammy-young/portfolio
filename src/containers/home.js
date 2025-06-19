@@ -2,6 +2,7 @@ import NavBar from "./navbar";
 import IntroSection from "./intro";
 import AboutSection from "./about";
 import Projects from "./projects";
+import Experience from "./experience";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <IntroSection />
       <AboutSection />
       <Projects />
+      <Experience />
     </div>
   );
 }
