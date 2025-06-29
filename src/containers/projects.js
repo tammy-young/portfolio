@@ -11,7 +11,6 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   bgcolor: 'background.paper',
-  border: '2px solid #000',
   boxShadow: 24,
   p: 4,
 };
@@ -44,7 +43,7 @@ function Project({ project }) {
   };
 
   return (
-    <div className="border rounded text-left sm:w-[30%] w-full cursor-pointer h-[400px]">
+    <div className="border border-neutral-500 rounded text-left sm:w-[45%] lg:w-[30%] max-w-[490px] w-full cursor-pointer h-[400px]">
       <div onClick={handleOpen} className='flex flex-col justify-between h-full'>
         <div className='flex justify-center items-center content-center text-center h-full'>
           <img src={project.image} className='h-min' alt={project.name}></img>
