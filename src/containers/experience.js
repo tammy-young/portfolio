@@ -6,42 +6,40 @@ import EXPERIENCE from '../lib/experience';
 
 function ExperienceCollapsible({ experience }) {
   return (
-    <div>
-      <Accordion
-        className='dark:!bg-neutral-700 my-1'>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon className='dark:text-white' />}
-          aria-controls="panel1-content"
-          id="panel1-header"
-        >
-          <div className='flex flex-col'>
-            <p className='text-2xl font-bold dark:text-white'>{experience.title}</p>
-            <p className='dark:text-neutral-300'>{experience.company}</p>
+    <Accordion
+      className='dark:!bg-neutral-700 my-1 !rounded-lg'>
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon className='dark:text-white' />}
+        aria-controls="panel1-content"
+        id="panel1-header"
+      >
+        <div className='flex flex-col'>
+          <p className='text-2xl font-bold dark:text-white'>{experience.title}</p>
+          <p className='dark:text-neutral-300'>{experience.company}</p>
+        </div>
+      </AccordionSummary>
+      <AccordionDetails>
+        <div>
+          <div className='text-left dark:text-white'>
+            {experience.location} | {experience.duration}
           </div>
-        </AccordionSummary>
-        <AccordionDetails>
-          <div>
-            <div className='text-left dark:text-white'>
-              {experience.location} | {experience.duration}
-            </div>
-            <div className='flex flex-row gap-2 mt-2 dark:text-white'>
-              <h3 className='font-bold'>Skills:</h3>
-              <div className='flex flex-row'>
-                {experience.skills.join(', ')}
-              </div>
-            </div>
-            <div className='mt-4 text-left dark:text-white'>
-              <h3 className='font-bold'>Responsibilities:</h3>
-              <ul className='list-disc pl-5'>
-                {experience.responsibilities.map((responsibility, index) => (
-                  <li key={index}>{responsibility}</li>
-                ))}
-              </ul>
+          <div className='flex flex-row gap-2 mt-2 dark:text-white'>
+            <h3 className='font-bold'>Skills:</h3>
+            <div className='flex flex-row'>
+              {experience.skills.join(', ')}
             </div>
           </div>
-        </AccordionDetails>
-      </Accordion>
-    </div>
+          <div className='mt-4 text-left dark:text-white'>
+            <h3 className='font-bold'>Responsibilities:</h3>
+            <ul className='list-disc pl-5'>
+              {experience.responsibilities.map((responsibility, index) => (
+                <li key={index}>{responsibility}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </AccordionDetails>
+    </Accordion>
   )
 }
 

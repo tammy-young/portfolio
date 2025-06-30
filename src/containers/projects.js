@@ -43,7 +43,7 @@ function Project({ project }) {
   };
 
   return (
-    <div className="border border-neutral-400 dark:border-none dark:bg-neutral-700 rounded text-left sm:w-[45%] lg:w-[30%] max-w-[490px] w-full cursor-pointer h-[400px]">
+    <div className="border border-neutral-400 dark:border-none dark:bg-neutral-700 rounded-lg text-left sm:w-[45%] lg:w-[30%] max-w-[490px] w-full cursor-pointer h-[400px]">
       <div onClick={handleOpen} className='flex flex-col justify-between h-full'>
         <div className='flex justify-center items-center content-center text-center h-full'>
           <img src={project.image} className='h-min' alt={project.name}></img>
@@ -60,7 +60,7 @@ function Project({ project }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} className="bg-white dark:!bg-neutral-700 md:w-[60%] w-[90%] max-w-[800px] rounded">
+        <Box sx={style} className="bg-white dark:!bg-neutral-700 md:w-[60%] w-[90%] max-w-[800px] rounded-lg">
           <ProjectModal project={project} handleClose={handleClose} />
         </Box>
       </Modal>
