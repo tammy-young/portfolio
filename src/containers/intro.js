@@ -7,11 +7,11 @@ const IntroSection = () => {
   return (
     <div className="flex sm:flex-row flex-col sm:justify-around px-[5%] justify-center items-center sm:gap-0 gap-5">
       <div className="flex flex-col justify-center gap-3">
-        <div>
+        <div className='dark:text-white'>
           <h4 className="">Nice to meet you,</h4>
           <h1 className="text-6xl font-bold w-max">I'm Tammy</h1>
         </div>
-        <h4>Passionate software developer/engineer based in Canada.</h4>
+        <h4 className='dark:text-white'>Passionate software developer/engineer based in Canada.</h4>
         <div className="flex flex-row gap-2">
           <Button variant="contained"
             sx={{ textTransform: 'capitalize', backgroundColor: Colours.mainPurple, color: '#000' }}

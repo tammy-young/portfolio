@@ -4,7 +4,7 @@ import Home from './containers/home';
 
 function App() {
   return (
-    <div className='py-9 bg-white dark:bg-gray-900'>
+    <div className='py-9 bg-white dark:bg-neutral-900'>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
