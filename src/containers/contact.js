@@ -4,14 +4,14 @@ import Colours from '../lib/colours';
 
 const Connect = () => {
   return (
-    <div className="text-center px-[5%] flex sm:flex-row flex-col gap-8 justify-around text-center items-center">
-      <div className="flex flex-col text-left w-1/3">
+    <div className="text-center px-[5%] flex sm:flex-row flex-col gap-8 justify-around text-center items-center" id="contact">
+      <div className="flex flex-col text-left sm:w-1/3">
         <h1 className="text-5xl font-bold pb-4">Let's connect</h1>
         <p>Thank you for visiting! If you have a question, opportunity, or want to say hi, I'd love to hear from you!
           Feel free to reach out, I'll get back to you as soon as I can.
         </p>
       </div>
-      <div className="flex flex-col w-1/2">
+      <div className="flex flex-col sm:w-1/2 w-full">
         <form className="flex flex-col gap-4">
           <Input
             placeholder="Your Name"

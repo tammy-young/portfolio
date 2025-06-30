@@ -5,7 +5,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 const IntroSection = () => {
   return (
-    <div className="flex sm:flex-row flex-col sm:justify-around px-[5%]">
+    <div className="flex sm:flex-row flex-col sm:justify-around px-[5%] justify-center items-center sm:gap-0 gap-5">
       <div className="flex flex-col justify-center gap-3">
         <div>
           <h4 className="">Nice to meet you,</h4>
@@ -32,7 +32,7 @@ const IntroSection = () => {
           </Button>
         </div>
       </div>
-      <img src="/images/headshot.jpeg" alt="Tammy Young" className="w-1/3 rounded-full"></img>
+      <img src="/images/headshot.jpeg" alt="Tammy Young" className="sm:w-1/3 w-5/6 rounded-full"></img>
     </div>
   )
 }

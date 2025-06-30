@@ -46,9 +46,9 @@ function ExperienceCollapsible({ experience }) {
 
 const Experience = () => {
   return (
-    <div className="text-center px-[5%] flex sm:flex-row flex-col gap-8 justify-around text-center items-center">
+    <div className="text-center px-[5%] flex lg:flex-row flex-col gap-8 justify-around text-center items-center" id="experience">
       <h1 className="text-5xl font-bold pb-4">My journey so far</h1>
-      <div className="flex flex-col w-1/2">
+      <div className="flex flex-col lg:w-1/2">
         {
           EXPERIENCE.map((exp, index) => (
             <ExperienceCollapsible key={index} experience={exp} />

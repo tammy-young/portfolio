@@ -70,7 +70,7 @@ function Project({ project }) {
 
 const Projects = () => {
   return (
-    <div className="text-center px-[5%]">
+    <div className="text-center px-[5%]" id="projects">
       <h1 className="text-5xl font-bold pb-4">I love building things</h1>
       <div className="flex items-center justify-center w-full">
         <div className="flex justify-center flex-wrap gap-4 ">
