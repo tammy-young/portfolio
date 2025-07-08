@@ -1,9 +1,6 @@
 const Colours = {
-  mainBlue: '#e5fcff',
-  mainPurple: '#f0e1ff',
-  mainYellow: '#fffee1',
-  mainRed: '#ffe1e2',
-  mainGreen: '#eeffec'
+  main: '#c2a3fc',
+  secondary: '#ddfca3',
 }
 
 export default Colours;
