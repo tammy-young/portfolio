@@ -30,7 +30,7 @@ const PROJECTS = [
   {
     name: "FocusGuard",
     summary: "Productivity Chrome Extension",
-    image: "",
+    image: "https://github.com/1pharaxh/FocusGuard/blob/main/chrome-extension/images/icon128.png?raw=true",
     description: "FocusGuard is a Google Chrome extension aimed at enhancing productivity. Using OpenAI technology, it will block unproductive tabs to help you stay focused. This is a winning project of the DevelopEd 2.0 Hackathon.",
     link: "https://github.com/1pharaxh/FocusGuard"
   },

@@ -43,7 +43,7 @@ function Project({ project }) {
   };
 
   return (
-    <div className="border border-neutral-400 dark:border-none dark:bg-neutral-700 rounded-lg text-left sm:w-[45%] lg:w-[30%] max-w-[490px] w-full cursor-pointer h-[400px]">
+    <div className="border border-neutral-300 dark:border-none dark:bg-neutral-700 rounded-lg text-left sm:w-[45%] lg:w-[30%] max-w-[490px] w-full cursor-pointer h-[400px]">
       <div onClick={handleOpen} className='flex flex-col justify-between h-full'>
         <div className='flex justify-center items-center content-center text-center h-full'>
           <img src={project.image} className='h-min' alt={project.name}></img>
@@ -73,7 +73,7 @@ const Projects = () => {
     <div className="text-center px-[5%]" id="projects">
       <h1 className="text-5xl font-bold pb-4 dark:text-white">I love building things</h1>
       <div className="flex items-center justify-center w-full">
-        <div className="flex justify-center flex-wrap gap-4 ">
+        <div className="flex justify-center flex-wrap gap-4 max-w-[1500px]">
           {PROJECTS.map((project) =>
             <Project project={project} />
           )}
