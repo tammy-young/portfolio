@@ -13,18 +13,18 @@ const IntroSection = () => {
         </div>
         <h4 className='dark:text-white'>Passionate software developer/engineer based in Canada.</h4>
         <div className="flex flex-row gap-2">
-          <Button variant="contained"
-            sx={{ textTransform: 'capitalize', backgroundColor: Colours.mainPurple, color: '#000' }}
+          <Button variant="contained" disableElevation
+            sx={{ textTransform: 'capitalize', backgroundColor: Colours.main, color: '#000' }}
             onClick={() => window.open('/docs/Resume_Tammy_Young.pdf', '_blank')}
-            >
+          >
             Resume
           </Button>
-          <Button variant="contained"
+          <Button variant="contained" disableElevation
             onClick={() => window.open('https://www.linkedin.com/in/tammyqyoung/', '_blank')}
           >
             <LinkedInIcon />
           </Button>
-          <Button variant="contained"
+          <Button variant="contained" disableElevation
             sx={{ backgroundColor: '#000', color: '#fff' }}
             onClick={() => window.open('https://github.com/tammy-young/', '_blank')}
           >

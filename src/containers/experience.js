@@ -7,7 +7,9 @@ import EXPERIENCE from '../lib/experience';
 function ExperienceCollapsible({ experience }) {
   return (
     <Accordion
-      className='dark:!bg-neutral-700 my-1 !rounded-lg'>
+      className='dark:!bg-neutral-700 my-1 !rounded-lg border-neutral-300 border'
+      sx={{ boxShadow: 0 }}
+    >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon className='dark:text-white' />}
         aria-controls="panel1-content"
@@ -45,14 +47,16 @@ function ExperienceCollapsible({ experience }) {
 
 const Experience = () => {
   return (
-    <div className="text-center px-[5%] flex lg:flex-row flex-col sm:gap-8 gap-2 justify-around text-center items-center" id="experience">
-      <h1 className="text-5xl font-bold pb-4 dark:text-white">My journey so far</h1>
-      <div className="flex flex-col lg:w-1/2">
-        {
-          EXPERIENCE.map((exp, index) => (
-            <ExperienceCollapsible key={index} experience={exp} />
-          ))
-        }
+    <div className="px-[5%] flex justify-center items-center" id="experience">
+      <div className='text-center flex lg:flex-row flex-col sm:gap-8 gap-2 items-center max-w-[1400px] justify-between'>
+        <h1 className="text-5xl font-bold pb-4 dark:text-white sm:w-1/2 text-left">My journey so far</h1>
+        <div className="flex flex-col lg:w-1/2 !w-full">
+          {
+            EXPERIENCE.map((exp, index) => (
+              <ExperienceCollapsible key={index} experience={exp} />
+            ))
+          }
+        </div>
       </div>
     </div>
   );
