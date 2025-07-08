@@ -3,6 +3,7 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import CloseIcon from '@mui/icons-material/Close';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import LinkIcon from '@mui/icons-material/Link';
 import PROJECTS from '../lib/projects.js';
 
 const style = {
@@ -24,8 +25,9 @@ function ProjectModal({ project, handleClose }) {
       <img src={project.image} className='top-0' alt={project.name}></img>
       <div className='flex flex-col gap-2 dark:text-white'>
         <div className='flex flex-row gap-2 items-center'>
-          <h2 className='text-3xl font-bold pt-4'>{project.name}</h2>
-          <OpenInNewIcon className='cursor-pointer' onClick={() => window.open(project.link, '_blank')} />
+          <h2 className='text-3xl font-bold'>{project.name}</h2>
+          <OpenInNewIcon className='cursor-pointer text-neutral-500 dark:text-neutral-300' onClick={() => window.open(project.link, '_blank')} />
+          {project.url && <LinkIcon className='cursor-pointer text-neutral-500 dark:text-neutral-300' onClick={() => window.open(project.url, '_blank')} />}
         </div>
         <p>{project.description}</p>
       </div>

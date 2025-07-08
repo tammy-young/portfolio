@@ -18,7 +18,8 @@ const PROJECTS = [
     summary: "GUI for Stardoll Bazaar Search",
     image: "https://github.com/tammy-young/genie/blob/main/public/genie-logo.png?raw=true",
     description: "Search Stardoll's Starbazaar faster and better with Genie! Genie is a web app for efficient fashion item searches. Designed to outperform the traditional Starbazaar search, Genie offers a sleek and intuitive graphical user interface that makes finding items quicker and easier than ever before. Promoted by the unofficial Stardoll Discord server (800+ members) and used for over a total of 80 hours by Stardoll players.",
-    link: "https://github.com/tammy-young/genie"
+    link: "https://github.com/tammy-young/genie",
+    url: "https://bazaar-genie.netlify.app/"
   },
   {
     name: "QuickScanR",
