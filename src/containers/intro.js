@@ -14,7 +14,8 @@ const IntroSection = () => {
         <h4 className='dark:text-white'>Passionate software developer/engineer based in Canada.</h4>
         <div className="flex flex-row gap-2">
           <Button variant="contained" disableElevation
-            sx={{ textTransform: 'capitalize', backgroundColor: Colours.main, color: '#000' }}
+            className="!bg-main-light"
+            sx={{ textTransform: 'capitalize', color: '#000' }}
             onClick={() => window.open('/docs/Resume_Tammy_Young.pdf', '_blank')}
           >
             Resume

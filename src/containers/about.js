@@ -1,7 +1,7 @@
 
 const AboutSection = () => {
   return (
-    <div className="bg-main dark:bg-yellow-900 p-8" id="about">
+    <div className="bg-main-light dark:bg-neutral-700 p-8" id="about">
       <div className="flex justify-center">
         <div className="flex lg:flex-row flex-col lg:items-stretch lg:w-2/3 lg:gap-8 gap-4 items-center max-w-[1300px]">
           <div className="flex items-center text-center"><p className="text-5xl font-bold min-w-max dark:text-white">About me</p></div>

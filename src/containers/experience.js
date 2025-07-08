@@ -7,7 +7,7 @@ import EXPERIENCE from '../lib/experience';
 function ExperienceCollapsible({ experience }) {
   return (
     <Accordion
-      className='dark:!bg-neutral-700 my-1 !rounded-lg border-neutral-300 border'
+      className='dark:!bg-neutral-700 dark:border-none my-1 !rounded-lg border-neutral-300 border'
       sx={{ boxShadow: 0 }}
     >
       <AccordionSummary

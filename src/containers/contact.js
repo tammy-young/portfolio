@@ -33,11 +33,11 @@ const Connect = () => {
               className="border dark:border-none rounded-lg !p-3 !px-3 dark:!text-white dark:bg-neutral-700"
             />
             <Button
-              className="text-white rounded-lg p-2"
+              className="text-white rounded-lg p-2 !bg-main-light"
               type="submit"
               variant='contained'
               disableElevation
-              sx={{ textTransform: 'capitalize', backgroundColor: Colours.main, color: 'black' }}
+              sx={{ textTransform: 'capitalize', color: 'black' }}
             >
               Send Message
             </Button>
