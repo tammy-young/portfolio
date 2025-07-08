@@ -16,8 +16,6 @@ You can view the live version of my portfolio here: [https://tammy-young.netlify
 
 Feel free to reach out via [tammy.q.young@gmail.com](mailto:tammy.q.young@gmail.com) or connect on [LinkedIn](https://www.linkedin.com/in/tammyqyoung).
 
----
-
 ## 📄 License
 
 This project is licensed under the [Apache 2.0 License](LICENSE).

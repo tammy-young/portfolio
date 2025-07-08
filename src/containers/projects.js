@@ -48,7 +48,7 @@ function Project({ project }) {
     <div className="border border-neutral-300 dark:border-none dark:bg-neutral-700 rounded-lg text-left sm:w-[45%] lg:w-[30%] max-w-[490px] w-full cursor-pointer h-[400px]">
       <div onClick={handleOpen} className='flex flex-col justify-between h-full'>
         <div className='flex justify-center items-center content-center text-center h-full'>
-          <img src={project.image} className='h-min' alt={project.name}></img>
+          <img src={project.image} className='' alt={project.name}></img>
         </div>
         <div className="p-4 dark:text-white">
           <h2 className="text-2xl font-bold">{project.name}</h2>
