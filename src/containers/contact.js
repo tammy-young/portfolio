@@ -1,6 +1,5 @@
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
-import Colours from '../lib/colours';
 
 const Connect = () => {
   return (

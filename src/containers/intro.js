@@ -1,5 +1,4 @@
 import Button from '@mui/material/Button';
-import Colours from '../lib/colours';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
