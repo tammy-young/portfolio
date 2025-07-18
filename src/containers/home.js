@@ -1,4 +1,4 @@
-import Navigation from "./navbar";
+import Navigation from "./navigation";
 import IntroSection from "./intro";
 import AboutSection from "./about";
 import Projects from "./projects";

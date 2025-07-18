@@ -7,7 +7,21 @@ import EXPERIENCE from '../lib/experience';
 function ExperienceCollapsible({ experience }) {
   return (
     <Accordion
-      className='dark:!bg-neutral-800 dark:border-none my-1 !rounded-xl !shadow-lg'
+      className='dark:!bg-neutral-800 my-1 !rounded-xl !shadow-lg hover:!shadow-xl'
+      sx={{
+        transition: 'box-shadow 0.3s ease-in-out',
+        '&:hover': {
+          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+        },
+        '&:before': {
+          display: 'none',
+        },
+        '@media (prefers-color-scheme: dark)': {
+          '&:hover': {
+            boxShadow: '0 25px 50px -12px rgba(255, 255, 255, 1)',
+          },
+        },
+      }}
     >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon className='dark:text-white' />}
@@ -30,7 +44,7 @@ function ExperienceCollapsible({ experience }) {
             <div className='flex flex-row flex-wrap gap-2'>
               {
                 experience.skills.map((skill, index) => (
-                  <span key={index} className='bg-main-light/50 text-main-dark rounded-full px-2 py-1 text-sm'>
+                  <span key={index} className='bg-main-light/50 dark:bg-main-light text-main-dark rounded-full px-2 py-1 text-sm'>
                     {skill}
                   </span>
                 ))
@@ -55,7 +69,7 @@ const Experience = () => {
   return (
     <div className="flex justify-center items-center relative min-h-fit sm:py-8 py-20 px-4" id="experience">
       <div className='text-center flex xl:flex-row flex-col items-center max-w-[1200px] justify-between xl:gap-8 gap-4'>
-        <div className='flex flex-col !text-left'>
+        <div className='flex flex-col sm:!text-left'>
           <h1 className="text-5xl font-bold pb-4 text-main">My journey so far</h1>
           <p className='!text-left dark:text-white'>Professional experiences that shaped my expertise</p>
         </div>
