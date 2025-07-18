@@ -82,13 +82,13 @@ function Project({ project }) {
 
 const Projects = () => {
   return (
-    <div className="text-center min-h-screen flex flex-col gap-8" id="projects">
+    <div className="text-center min-h-screen flex flex-col gap-8 px-4" id="projects">
       <div className='flex flex-col items-center justify-center'>
         <h1 className="text-5xl font-bold pb-4 text-main dark:text-white">I love building things</h1>
         <p>Explore my latest projects and creative solutions</p>
       </div>
       <div className="flex items-center justify-center w-full">
-        <div className="flex justify-center flex-wrap gap-8 max-w-[1500px]">
+        <div className="flex justify-center flex-wrap sm:gap-8 gap-4 max-w-[1500px]">
           {PROJECTS.map((project) =>
             <Project project={project} />
           )}
