@@ -2,6 +2,13 @@ import { Link } from "react-router-dom";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from "react";
 
+const NAV_ITEMS = [
+  { name: "About", hash: "#about" },
+  { name: "Projects", hash: "#projects" },
+  { name: "Experience", hash: "#experience" },
+  { name: "Contact", hash: "#contact" },
+];
+
 const NavHamburger = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -29,26 +36,18 @@ const NavMenu = (setIsOpen = null) => {
         <h1 className="text-3xl font-bold text-main">Tammy Young</h1>
         <p className="text-neutral-500 font-normal">Software Developer</p>
       </div>
-      <Link
-        to={{ hash: "#about" }}
-        onClick={() => { setIsOpen ?? setIsOpen(false) }}>
-        <p>About</p>
-      </Link>
-      <Link
-        to={{ hash: "#projects" }}
-        onClick={() => { setIsOpen ?? setIsOpen(false) }}>
-        <p>Projects</p>
-      </Link>
-      <Link
-        to={{ hash: "#experience" }}
-        onClick={() => { setIsOpen ?? setIsOpen(false) }}>
-        <p>Experience</p>
-      </Link>
-      <Link
-        to={{ hash: "#contact" }}
-        onClick={() => { setIsOpen ?? setIsOpen(false) }}>
-        <p>Contact</p>
-      </Link>
+      {
+        NAV_ITEMS.map((item, index) => (
+          <Link
+            key={index}
+            to={item.hash}
+            className="text-xl hover:text-main transition-colors duration-300"
+            onClick={() => setIsOpen ?? setIsOpen(false)}
+          >
+            {item.name}
+          </Link>
+        ))
+      }
     </div>
   )
 }
