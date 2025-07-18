@@ -22,14 +22,18 @@ export default function Home() {
   }, [fragment]);
 
   return (
-    <div className="flex md:flex-row">
+    <div className="flex md:flex-row scroll-smooth">
       <Navigation />
-      <div className="flex flex-col">
-        <IntroSection />
-        <AboutSection />
-        <Projects />
-        <Experience />
-        <Connect />
+      <div className="flex flex-col sm:pb-20 pb-12 snap-y snap-mandatory overflow-y-scroll h-screen">
+        <div className="snap-start snap-always">
+          <IntroSection />
+        </div>
+        <div className="snap-start snap-always">
+          <AboutSection />
+          <Projects />
+          <Experience />
+          <Connect />
+        </div>
       </div>
     </div>
   );

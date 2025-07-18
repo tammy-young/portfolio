@@ -3,8 +3,8 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 const IntroSection = () => {
   return (
-    <div className="px-[5%] flex justify-center h-screen" id="intro">
-      <div className='flex sm:flex-row flex-col sm:justify-around justify-center items-center sm:gap-0 gap-5 max-w-[1400px]'>
+    <div className="px-[5%] flex justify-center relative min-h-screen w-full" id="intro">
+      <div className='flex xl:flex-row flex-col xl:justify-around justify-center items-center xl:gap-0 gap-5'>
         <div className="flex flex-col justify-center gap-4">
           <div className='dark:text-white'>
             <h4 className="">Nice to meet you,</h4>
@@ -32,7 +32,7 @@ const IntroSection = () => {
             </button>
           </div>
         </div>
-        <img src="/images/headshot.jpeg" alt="Tammy Young" className="sm:w-1/3 w-5/6 rounded-full border-4 border-white shadow-xl hover:shadow-main-light/20 transition-shadow duration-300"></img>
+        <img src="/images/headshot.jpeg" alt="Tammy Young" className="xl:w-1/3 sm:w-1/2 w-3/4 rounded-full border-4 border-white shadow-xl hover:shadow-main-light/20 transition-shadow duration-300"></img>
       </div>
     </div>
   )

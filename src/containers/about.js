@@ -1,7 +1,7 @@
 
 const AboutSection = () => {
   return (
-    <div className="h-screen w-full flex justify-center items-center px-4" id="about">
+    <div className="relative min-h-screen w-full flex justify-center items-center px-4" id="about">
       <div className="flex xl:flex-row flex-col xl:gap-16 gap-4">
         <div className="flex items-center !text-center justify-center flex-wrap xl:w-fit w-full">
           <p className="text-5xl font-bold min-w-max text-main">About&nbsp;me</p>
