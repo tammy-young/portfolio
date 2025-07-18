@@ -1,7 +1,6 @@
 import { useState, useRef } from 'react';
 import Input from '@mui/material/Input';
 import Button from '../components/button';
-import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../config/emailjs';
 
 const Connect = () => {
