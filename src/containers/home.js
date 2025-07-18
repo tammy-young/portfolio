@@ -1,4 +1,4 @@
-import NavBar from "./navbar";
+import Navigation from "./navbar";
 import IntroSection from "./intro";
 import AboutSection from "./about";
 import Projects from "./projects";
@@ -22,13 +22,15 @@ export default function Home() {
   }, [fragment]);
 
   return (
-    <div className="space-y-12">
-      <NavBar />
-      <IntroSection />
-      <AboutSection />
-      <Projects />
-      <Experience />
-      <Connect />
+    <div className="flex md:flex-row">
+      <Navigation />
+      <div className="flex flex-col space-y-12">
+        <IntroSection />
+        <AboutSection />
+        <Projects />
+        <Experience />
+        <Connect />
+      </div>
     </div>
   );
 }
