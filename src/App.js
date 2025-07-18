@@ -4,7 +4,7 @@ import Home from './containers/home';
 
 function App() {
   return (
-    <div className='bg-gray-50 dark:bg-neutral-900'>
+    <div className='bg-[#fafafa] dark:bg-neutral-900 text-neutral-600 xl:text-lg text-md'>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />

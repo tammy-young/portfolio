@@ -24,10 +24,10 @@ const NavHamburger = () => {
 
 const NavMenu = (setIsOpen = null) => {
   return (
-    <div className="flex flex-col justify-center dark:text-neutral-400 max-h-screen h-screen bg-white gap-12 absolute left-0 sticky top-0 px-8 md:w-full w-2/3 z-50">
+    <div className="flex flex-col justify-center dark:text-neutral-400 max-h-screen h-screen bg-white gap-12 absolute left-0 sticky top-0 px-8 md:w-full w-2/3 z-50 font-semibold shadow-xl">
       <div className="flex flex-col">
         <h1 className="text-3xl font-bold text-main">Tammy Young</h1>
-        <p className="text-neutral-500">Software Developer</p>
+        <p className="text-neutral-500 font-normal">Software Developer</p>
       </div>
       <Link
         to={{ hash: "#about" }}
