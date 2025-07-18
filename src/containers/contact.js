@@ -1,4 +1,5 @@
 import Input from '@mui/material/Input';
+import Button from '../components/button';
 
 const Connect = () => {
   return (
@@ -30,12 +31,11 @@ const Connect = () => {
               inputProps={{ 'aria-label': 'Your Message' }}
               className="bg-[#fafafa] rounded-lg !p-3 !px-3 dark:!text-white dark:bg-neutral-700"
             />
-            <button
-              className="bg-main p-3 px-6 rounded-full text-white shadow-lg font-bold hover:bg-main-light hover:shadow-xl transition-colors duration-300 flex justify-center items-center"
-              onClick={() => window.open('/docs/Resume_Tammy_Young.pdf', '_blank')}
+            <Button
+              onClick={() => console.log('Feature not implemented yet')}
             >
               Send Message
-            </button>
+            </Button>
           </form>
         </div>
       </div>

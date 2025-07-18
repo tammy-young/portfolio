@@ -1,5 +1,6 @@
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import Button from '../components/button.js';
 
 const IntroSection = () => {
   return (
@@ -12,24 +13,23 @@ const IntroSection = () => {
           </div>
           <h4 className='dark:text-white max-w-[400px]'>Passionate software developer/engineer creating innovative solutions in Canada.</h4>
           <div className="flex flex-row gap-4">
-            <button
-              className="bg-main p-3 px-6 rounded-full text-white shadow-lg font-bold hover:bg-main-light hover:shadow-xl transition-colors duration-300 flex justify-center items-center"
+            <Button
               onClick={() => window.open('/docs/Resume_Tammy_Young.pdf', '_blank')}
             >
               Resume
-            </button>
-            <button
-              className="bg-[#0072b1] p-3 rounded-full text-white shadow-lg hover:bg-main-light hover:shadow-xl transition-colors duration-300 flex justify-center items-center"
+            </Button>
+            <Button
               onClick={() => window.open('https://www.linkedin.com/in/tammyqyoung/', '_blank')}
+              color={"bg-[#0072b1]"}
             >
               <LinkedInIcon />
-            </button>
-            <button
-              className="bg-black p-3 rounded-full text-white shadow-lg hover:bg-main-light hover:shadow-xl transition-colors duration-300 flex justify-center items-center"
+            </Button>
+            <Button
               onClick={() => window.open('https://github.com/tammy-young/', '_blank')}
+              color={"bg-black"}
             >
               <GitHubIcon />
-            </button>
+            </Button>
           </div>
         </div>
         <img src="/images/headshot.jpeg" alt="Tammy Young" className="xl:w-1/3 sm:w-1/2 w-3/4 rounded-full border-4 border-white shadow-xl hover:shadow-main-light/20 transition-shadow duration-300"></img>
