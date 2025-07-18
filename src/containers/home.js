@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <div className="flex md:flex-row scroll-smooth">
       <Navigation />
-      <div className="flex flex-col sm:pb-20 pb-12">
+      <div className="flex flex-col">
         <IntroSection />
         <AboutSection />
         <Projects />

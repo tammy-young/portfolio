@@ -18,23 +18,23 @@ const style = {
 
 function ProjectModal({ project, handleClose }) {
   return (
-    <div className=''>
-      <button className="bg-white rounded-full p-3 shadow-lg m-6 fixed top-0 left-0 z-50" onClick={handleClose}>
+    <div>
+      <button className="bg-white dark:bg-neutral-700 rounded-full p-3 shadow-lg m-6 fixed top-0 left-0 z-50" onClick={handleClose}>
         <CloseIcon className='dark:text-white text-neutral-400' />
       </button>
       <img src={project.image} className='top-0' alt={project.name}></img>
-      <div className='flex flex-col gap-2 dark:text-white'>
+      <div className='flex flex-col gap-2 dark:text-white pt-4'>
         <div className='flex flex-row gap-2 items-center'>
           <h2 className='text-3xl font-bold text-main'>{project.name}</h2>
           <div className='flex items-center justify-center'>
-            <button className='bg-neutral-200/80 !p-[0.9rem] rounded w-6 h-6 flex justify-center items-center' onClick={() => window.open(project.link, '_blank')}>
-              <OpenInNewIcon className='text-sky-500 dark:text-neutral-300 m-2' fontSize='small' />
+            <button className='bg-neutral-200/80 dark:bg-neutral-800 !p-[0.9rem] rounded w-6 h-6 flex justify-center items-center' onClick={() => window.open(project.link, '_blank')}>
+              <OpenInNewIcon className='text-sky-500' fontSize='small' />
             </button>
           </div>
           {
             project.url && (
-              <button className='bg-neutral-200/80 !p-[0.9rem] rounded w-6 h-6 flex justify-center items-center' onClick={() => window.open(project.link, '_blank')}>
-                <LinkIcon className='text-sky-500 dark:text-neutral-300' onClick={() => window.open(project.url, '_blank')} />
+              <button className='bg-neutral-200/80 dark:bg-neutral-800 !p-[0.9rem] rounded w-6 h-6 flex justify-center items-center' onClick={() => window.open(project.link, '_blank')}>
+                <LinkIcon className='text-sky-500' onClick={() => window.open(project.url, '_blank')} />
               </button>
             )
           }
@@ -55,7 +55,7 @@ function Project({ project }) {
   };
 
   return (
-    <div className="bg-white shadow-lg dark:border-none dark:bg-neutral-700 rounded-xl text-left sm:w-[45%] lg:w-[30%] max-w-[490px] w-full cursor-pointer h-[400px] hover:shadow-xl hover:shadow-main-light/20 transition-shadow duration-300">
+    <div className="bg-white shadow-lg dark:border-none dark:bg-neutral-800 rounded-xl text-left sm:w-[45%] lg:w-[30%] max-w-[490px] w-full cursor-pointer h-[400px] hover:shadow-xl hover:shadow-main-light/20 transition-shadow duration-300">
       <div onClick={handleOpen} className='flex flex-col justify-between h-full'>
         <div className='flex justify-center items-center content-center text-center h-full p-6'>
           <img src={project.image} alt={project.name} />
@@ -72,7 +72,7 @@ function Project({ project }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} className="bg-white dark:!bg-neutral-700 md:w-[60%] w-[90%] max-w-[800px] rounded-lg">
+        <Box sx={style} className="bg-white dark:!bg-neutral-800 md:w-[60%] w-[90%] max-w-[800px] rounded-lg">
           <ProjectModal project={project} handleClose={handleClose} />
         </Box>
       </Modal>
@@ -84,8 +84,8 @@ const Projects = () => {
   return (
     <div className="text-center min-h-fit flex flex-col gap-8 px-4 justify-center items-center py-8" id="projects">
       <div className='flex flex-col items-center justify-center'>
-        <h1 className="text-5xl font-bold pb-4 text-main dark:text-white">I love building things</h1>
-        <p>Explore my latest projects and creative solutions</p>
+        <h1 className="text-5xl font-bold pb-4 text-main">I love building things</h1>
+        <p className='dark:text-white'>Explore my latest projects and creative solutions</p>
       </div>
       <div className="flex items-center justify-center w-full">
         <div className="flex justify-center flex-wrap sm:gap-8 gap-4 max-w-[1500px]">

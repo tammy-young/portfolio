@@ -7,7 +7,7 @@ import EXPERIENCE from '../lib/experience';
 function ExperienceCollapsible({ experience }) {
   return (
     <Accordion
-      className='dark:!bg-neutral-700 dark:border-none my-1 !rounded-xl !shadow-lg'
+      className='dark:!bg-neutral-800 dark:border-none my-1 !rounded-xl !shadow-lg'
     >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon className='dark:text-white' />}
@@ -30,7 +30,7 @@ function ExperienceCollapsible({ experience }) {
             <div className='flex flex-row flex-wrap gap-2'>
               {
                 experience.skills.map((skill, index) => (
-                  <span key={index} className='bg-main-light/50 text-main-dark dark:bg-neutral-800 rounded-full px-2 py-1 text-sm'>
+                  <span key={index} className='bg-main-light/50 text-main-dark rounded-full px-2 py-1 text-sm'>
                     {skill}
                   </span>
                 ))
@@ -56,8 +56,8 @@ const Experience = () => {
     <div className="flex justify-center items-center relative min-h-fit sm:py-8 py-20 px-4" id="experience">
       <div className='text-center flex xl:flex-row flex-col items-center max-w-[1200px] justify-between xl:gap-8 gap-4'>
         <div className='flex flex-col !text-left'>
-          <h1 className="text-5xl font-bold pb-4 text-main dark:text-white">My journey so far</h1>
-          <p className='!text-left'>Professional experiences that shaped my expertise</p>
+          <h1 className="text-5xl font-bold pb-4 text-main">My journey so far</h1>
+          <p className='!text-left dark:text-white'>Professional experiences that shaped my expertise</p>
         </div>
         <div className="flex flex-col xl:w-3/5 gap-2">
           {
