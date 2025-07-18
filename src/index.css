@@ -7,7 +7,7 @@ html {
 }
 
 @media (prefers-color-scheme: dark) {
-  .html {
+  html {
     background-color: #171717;
   }
 }
