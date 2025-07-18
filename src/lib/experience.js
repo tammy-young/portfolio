@@ -8,7 +8,7 @@ const EXPERIENCE = [
     "responsibilities": [
       "Designed and implemented the frontend and backend for a user-friendly job search platform, ensuring seamless user experience and efficient navigation.",
       "Worked closely with other teams to translate ideas into functional features, enhancing the platform’s ability to connect job seekers with relevant opportunities.",
-      "Increased user engagement and platform revenue by developing visually appealing event pages and a membership system."
+      "Increased user engagement and platform revenue by developing visually appealing event pages and leading the development of the platform membership system."
     ]
   },
   {

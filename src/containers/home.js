@@ -1,4 +1,4 @@
-import NavBar from "./navbar";
+import Navigation from "./navigation";
 import IntroSection from "./intro";
 import AboutSection from "./about";
 import Projects from "./projects";
@@ -6,6 +6,7 @@ import Experience from "./experience";
 import Connect from "./contact";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import ScrollToTopButton from "../components/scrollToTopButton";
 
 export default function Home() {
 
@@ -22,13 +23,16 @@ export default function Home() {
   }, [fragment]);
 
   return (
-    <div className="space-y-12">
-      <NavBar />
-      <IntroSection />
-      <AboutSection />
-      <Projects />
-      <Experience />
-      <Connect />
+    <div className="flex md:flex-row scroll-smooth">
+      <Navigation />
+      <div className="flex flex-col">
+        <IntroSection />
+        <AboutSection />
+        <Projects />
+        <Experience />
+        <Connect />
+      </div>
+      <ScrollToTopButton />
     </div>
   );
 }

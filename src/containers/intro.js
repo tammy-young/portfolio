@@ -1,39 +1,39 @@
-import Button from '@mui/material/Button';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import Button from '../components/button.js';
 
 const IntroSection = () => {
   return (
-    <div className="px-[5%] flex justify-center" id="intro">
-      <div className='flex sm:flex-row flex-col sm:justify-around justify-center items-center sm:gap-0 gap-5 max-w-[1400px]'>
-        <div className="flex flex-col justify-center gap-3">
+    <div className="px-[5%] flex justify-center relative min-h-screen w-full" id="intro">
+      <div className='flex xl:flex-row flex-col xl:justify-around justify-center items-center xl:gap-0 gap-5'>
+        <div className="flex flex-col justify-center gap-4">
           <div className='dark:text-white'>
             <h4 className="">Nice to meet you,</h4>
-            <h1 className="text-6xl font-bold w-max">I'm Tammy</h1>
+            <h1 className="text-7xl font-bold w-max text-main">I'm Tammy</h1>
           </div>
-          <h4 className='dark:text-white'>Passionate software developer/engineer based in Canada.</h4>
-          <div className="flex flex-row gap-2">
-            <Button variant="contained" disableElevation
-              className="!bg-main-light"
-              sx={{ textTransform: 'capitalize', color: '#000' }}
+          <h4 className='dark:text-white max-w-[400px]'>Passionate software developer/engineer creating innovative solutions in Canada.</h4>
+          <div className="flex flex-row gap-4">
+            <Button
               onClick={() => window.open('/docs/Resume_Tammy_Young.pdf', '_blank')}
+              padding={'p-3 px-6'}
             >
               Resume
             </Button>
-            <Button variant="contained" disableElevation
+            <Button
               onClick={() => window.open('https://www.linkedin.com/in/tammyqyoung/', '_blank')}
+              color={"bg-[#0072b1]"}
             >
               <LinkedInIcon />
             </Button>
-            <Button variant="contained" disableElevation
-              sx={{ backgroundColor: '#000', color: '#fff' }}
+            <Button
               onClick={() => window.open('https://github.com/tammy-young/', '_blank')}
+              color={"bg-black"}
             >
               <GitHubIcon />
             </Button>
           </div>
         </div>
-        <img src="/images/headshot.jpeg" alt="Tammy Young" className="sm:w-1/3 w-5/6 rounded-full"></img>
+        <img src="/images/headshot.jpeg" alt="Tammy Young" className="xl:w-1/3 sm:w-1/2 w-3/4 rounded-full border-4 border-white hover:border-main-light shadow-xl hover:shadow-main-light/20 transition-all duration-300"></img>
       </div>
     </div>
   )
