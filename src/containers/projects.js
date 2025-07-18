@@ -27,13 +27,13 @@ function ProjectModal({ project, handleClose }) {
         <div className='flex flex-row gap-2 items-center'>
           <h2 className='text-3xl font-bold text-main'>{project.name}</h2>
           <div className='flex items-center justify-center'>
-            <button className='bg-neutral-200/80 dark:bg-neutral-800 !p-[0.9rem] rounded w-6 h-6 flex justify-center items-center' onClick={() => window.open(project.link, '_blank')}>
+            <button className='bg-neutral-200/80 dark:bg-neutral-700 !p-[0.9rem] rounded w-6 h-6 flex justify-center items-center' onClick={() => window.open(project.link, '_blank')}>
               <OpenInNewIcon className='text-sky-500' fontSize='small' />
             </button>
           </div>
           {
             project.url && (
-              <button className='bg-neutral-200/80 dark:bg-neutral-800 !p-[0.9rem] rounded w-6 h-6 flex justify-center items-center' onClick={() => window.open(project.link, '_blank')}>
+              <button className='bg-neutral-200/80 dark:bg-neutral-700 !p-[0.9rem] rounded w-6 h-6 flex justify-center items-center' onClick={() => window.open(project.link, '_blank')}>
                 <LinkIcon className='text-sky-500' onClick={() => window.open(project.url, '_blank')} />
               </button>
             )
@@ -55,7 +55,7 @@ function Project({ project }) {
   };
 
   return (
-    <div className="bg-white shadow-lg dark:border-none dark:bg-neutral-800 rounded-xl text-left sm:w-[45%] lg:w-[30%] max-w-[490px] w-full cursor-pointer h-[400px] hover:shadow-xl hover:shadow-main-light/20 transition-shadow duration-300">
+    <div className="bg-white shadow-lg dark:border-none dark:bg-neutral-800 rounded-xl text-left sm:w-[45%] 2xl:w-[30%] max-w-[490px] w-full cursor-pointer h-[425px] hover:shadow-xl hover:shadow-main-light/20 transition-shadow duration-300">
       <div onClick={handleOpen} className='flex flex-col justify-between h-full'>
         <div className='flex justify-center items-center content-center text-center h-full p-6'>
           <img src={project.image} alt={project.name} />

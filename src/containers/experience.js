@@ -30,7 +30,7 @@ function ExperienceCollapsible({ experience }) {
         id="panel1-header"
       >
         <div className='flex flex-col'>
-          <p className='text-2xl font-bold text-main dark:text-white'>{experience.title}</p>
+          <p className='text-2xl font-bold text-main'>{experience.title}</p>
           <p className='dark:text-neutral-300'>{experience.company}</p>
         </div>
       </AccordionSummary>
