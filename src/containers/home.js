@@ -6,6 +6,7 @@ import Experience from "./experience";
 import Connect from "./contact";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import ScrollToTopButton from "../components/scrollToTopButton";
 
 export default function Home() {
 
@@ -31,6 +32,7 @@ export default function Home() {
         <Experience />
         <Connect />
       </div>
+      <ScrollToTopButton />
     </div>
   );
 }

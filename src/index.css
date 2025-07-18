@@ -26,6 +26,18 @@ code {
     monospace;
 }
 
-.MuiAccordion-root::before, .MuiInputBase-root::before, .MuiInputBase-root::after {
+.MuiAccordion-root::before,
+.MuiInputBase-root::before,
+.MuiInputBase-root::after {
   display: none !important;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition: all 0.3s ease;
 }

@@ -15,6 +15,7 @@ const IntroSection = () => {
           <div className="flex flex-row gap-4">
             <Button
               onClick={() => window.open('/docs/Resume_Tammy_Young.pdf', '_blank')}
+              padding={'p-3 px-6'}
             >
               Resume
             </Button>
@@ -32,7 +33,7 @@ const IntroSection = () => {
             </Button>
           </div>
         </div>
-        <img src="/images/headshot.jpeg" alt="Tammy Young" className="xl:w-1/3 sm:w-1/2 w-3/4 rounded-full border-4 border-white shadow-xl hover:shadow-main-light/20 transition-shadow duration-300"></img>
+        <img src="/images/headshot.jpeg" alt="Tammy Young" className="xl:w-1/3 sm:w-1/2 w-3/4 rounded-full border-4 border-white hover:border-main-light shadow-xl hover:shadow-main-light/20 transition-all duration-300"></img>
       </div>
     </div>
   )
