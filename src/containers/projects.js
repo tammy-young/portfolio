@@ -18,18 +18,23 @@ const style = {
 
 function ProjectModal({ project, handleClose }) {
   return (
-    <div className=''>
-      <div className='pr-2 pb-2 rounded-full w-max cursor-pointer'>
-        <CloseIcon onClick={handleClose} className='dark:text-white' />
+    <div className='relative'>
+      <div className='absolute top-0 right-0 p-2 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 cursor-pointer transition-all duration-200 z-10'>
+        <CloseIcon onClick={handleClose} className='dark:text-white text-gray-600' />
       </div>
-      <img src={project.image} className='top-0' alt={project.name}></img>
-      <div className='flex flex-col gap-2 dark:text-white'>
-        <div className='flex flex-row gap-2 items-center'>
-          <h2 className='text-3xl font-bold'>{project.name}</h2>
-          <OpenInNewIcon className='cursor-pointer text-neutral-500 dark:text-neutral-300' onClick={() => window.open(project.link, '_blank')} />
-          {project.url && <LinkIcon className='cursor-pointer text-neutral-500 dark:text-neutral-300' onClick={() => window.open(project.url, '_blank')} />}
+      <div className='relative overflow-hidden rounded-lg mb-4'>
+        <img src={project.image} className='w-full h-64 object-cover' alt={project.name}></img>
+        <div className='absolute inset-0 bg-gradient-to-t from-black/30 to-transparent'></div>
+      </div>
+      <div className='flex flex-col gap-4 dark:text-white'>
+        <div className='flex flex-row gap-3 items-center'>
+          <h2 className='text-3xl font-bold bg-gradient-to-r from-accent-purple to-accent-pink bg-clip-text text-transparent'>{project.name}</h2>
+          <div className='flex gap-2'>
+            <OpenInNewIcon className='cursor-pointer text-accent-blue hover:text-accent-purple transition-colors duration-200 p-1 rounded bg-gray-100 dark:bg-gray-700' onClick={() => window.open(project.link, '_blank')} />
+            {project.url && <LinkIcon className='cursor-pointer text-accent-green hover:text-accent-blue transition-colors duration-200 p-1 rounded bg-gray-100 dark:bg-gray-700' onClick={() => window.open(project.url, '_blank')} />}
+          </div>
         </div>
-        <p>{project.description}</p>
+        <p className='text-lg leading-relaxed text-gray-700 dark:text-gray-300'>{project.description}</p>
       </div>
     </div>
   )
@@ -45,14 +50,15 @@ function Project({ project }) {
   };
 
   return (
-    <div className="border border-neutral-300 dark:border-none dark:bg-neutral-700 rounded-lg text-left sm:w-[45%] lg:w-[30%] max-w-[490px] w-full cursor-pointer h-[400px]">
-      <div onClick={handleOpen} className='flex flex-col justify-between h-full'>
-        <div className='flex justify-center items-center content-center text-center h-full'>
-          <img src={project.image} className='' alt={project.name}></img>
+    <div className="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-white/20 dark:border-gray-700/20 shadow-xl hover:shadow-2xl transition-all duration-300 sm:w-[45%] lg:w-[30%] max-w-[490px] w-full cursor-pointer h-[400px] overflow-hidden">
+      <div onClick={handleOpen} className='relative h-full flex flex-col'>
+        <div className='relative overflow-hidden rounded-t-2xl h-2/3'>
+          <img src={project.image} className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-500' alt={project.name}></img>
+          <div className='absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
         </div>
-        <div className="p-4 dark:text-white">
-          <h2 className="text-2xl font-bold">{project.name}</h2>
-          <p>{project.summary}</p>
+        <div className="p-6 h-1/3 flex flex-col justify-center">
+          <h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-accent-purple to-accent-blue bg-clip-text text-transparent">{project.name}</h2>
+          <p className='text-gray-600 dark:text-gray-300 line-clamp-3'>{project.summary}</p>
         </div>
       </div>
 
@@ -62,7 +68,7 @@ function Project({ project }) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} className="bg-white dark:!bg-neutral-700 md:w-[60%] w-[90%] max-w-[800px] rounded-lg">
+        <Box sx={style} className="bg-white dark:!bg-gray-800 md:w-[60%] w-[90%] max-w-[800px] rounded-2xl border border-white/20 dark:border-gray-700/20 shadow-2xl backdrop-blur-sm">
           <ProjectModal project={project} handleClose={handleClose} />
         </Box>
       </Modal>
@@ -72,12 +78,20 @@ function Project({ project }) {
 
 const Projects = () => {
   return (
-    <div className="text-center px-[5%]" id="projects">
-      <h1 className="text-5xl font-bold pb-4 dark:text-white">I love building things</h1>
+    <div className="px-[5%] lg:px-[8%] py-20 relative" id="projects">
+      <div className="text-center mb-16">
+        <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-accent-purple via-accent-pink to-accent-blue bg-clip-text text-transparent">
+          I love building things
+        </h1>
+        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Explore my latest projects and creative solutions
+        </p>
+      </div>
+      
       <div className="flex items-center justify-center w-full">
-        <div className="flex justify-center flex-wrap gap-4 max-w-[1500px]">
-          {PROJECTS.map((project) =>
-            <Project project={project} />
+        <div className="flex justify-center flex-wrap gap-8 max-w-[1500px]">
+          {PROJECTS.map((project, index) =>
+            <Project key={index} project={project} />
           )}
         </div>
       </div>

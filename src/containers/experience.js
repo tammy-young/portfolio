@@ -4,58 +4,80 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import EXPERIENCE from '../lib/experience';
 
-function ExperienceCollapsible({ experience }) {
+function ExperienceCollapsible({ experience, index }) {
   return (
     <Accordion
-      className='dark:!bg-neutral-700 dark:border-none my-1 !rounded-lg border-neutral-300 border'
-      sx={{ boxShadow: 0 }}
+      className='!bg-white/80 dark:!bg-gray-800/80 !backdrop-blur-sm !border !border-white/20 dark:!border-gray-700/20 !my-3 !rounded-2xl !shadow-lg hover:!shadow-xl !transition-all !duration-300'
+      sx={{ 
+        boxShadow: 'none',
+        '&:before': {
+          display: 'none',
+        },
+        '&.Mui-expanded': {
+          margin: '12px 0',
+        }
+      }}
     >
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon className='dark:text-white' />}
-        aria-controls="panel1-content"
-        id="panel1-header"
-      >
-        <div className='flex flex-col'>
-          <p className='text-2xl font-bold dark:text-white'>{experience.title}</p>
-          <p className='dark:text-neutral-300'>{experience.company}</p>
-        </div>
-      </AccordionSummary>
-      <AccordionDetails>
-        <div>
-          <div className='text-left dark:text-white'>
-            {experience.location} | {experience.duration}
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon className='dark:text-white text-gray-600' />}
+          aria-controls="panel1-content"
+          id="panel1-header"
+          className='!py-4'
+        >
+          <div className='flex flex-col'>
+            <p className='text-2xl font-bold bg-gradient-to-r from-accent-purple to-accent-blue bg-clip-text text-transparent'>{experience.title}</p>
+            <p className='text-gray-600 dark:text-gray-300 font-medium'>{experience.company}</p>
           </div>
-          <div className='flex flex-row gap-2 mt-2 dark:text-white'>
-            <h3 className='font-bold'>Skills:</h3>
-            <div className='flex flex-row'>
-              {experience.skills.join(', ')}
+        </AccordionSummary>
+        <AccordionDetails className='!px-6 !pb-6'>
+          <div>
+            <div className='text-left text-gray-600 dark:text-gray-300 mb-4 font-medium'>
+              {experience.location} | {experience.duration}
+            </div>
+            <div className='flex flex-wrap gap-2 mt-4 mb-6'>
+              <h3 className='font-bold text-gray-800 dark:text-white mr-2'>Skills:</h3>
+              {experience.skills.map((skill, idx) => (
+                <span key={idx} className='px-3 py-1 bg-gradient-to-r from-accent-purple/20 to-accent-blue/20 text-accent-purple dark:text-accent-blue rounded-full text-sm font-medium'>
+                  {skill}
+                </span>
+              ))}
+            </div>
+            <div className='text-left'>
+              <h3 className='font-bold text-gray-800 dark:text-white mb-3'>Responsibilities:</h3>
+              <ul className='list-none space-y-2'>
+                {experience.responsibilities.map((responsibility, idx) => (
+                  <li key={idx} className='flex items-start'>
+                    <span className='w-2 h-2 bg-gradient-to-r from-accent-purple to-accent-blue rounded-full mt-2 mr-3 flex-shrink-0'></span>
+                    <span className='text-gray-700 dark:text-gray-300'>{responsibility}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-          <div className='mt-4 text-left dark:text-white'>
-            <h3 className='font-bold'>Responsibilities:</h3>
-            <ul className='list-disc pl-5'>
-              {experience.responsibilities.map((responsibility, index) => (
-                <li key={index}>{responsibility}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </AccordionDetails>
-    </Accordion>
+        </AccordionDetails>
+      </Accordion>
   )
 }
 
 const Experience = () => {
   return (
-    <div className="px-[5%] flex justify-center items-center" id="experience">
-      <div className='text-center flex lg:flex-row flex-col items-center max-w-[1200px] justify-between lg:gap-8'>
-        <h1 className="text-5xl font-bold pb-4 dark:text-white lg:w-2/5 text-left">My journey so far</h1>
-        <div className="flex flex-col lg:w-3/5">
-          {
-            EXPERIENCE.map((exp, index) => (
-              <ExperienceCollapsible key={index} experience={exp} />
-            ))
-          }
+    <div className="px-[5%] lg:px-[8%] py-20 relative" id="experience">
+      <div className="flex justify-center items-center">
+        <div className='flex lg:flex-row flex-col items-center max-w-[1200px] justify-between lg:gap-16 gap-12'>
+          <div className="lg:w-2/5">
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-accent-green via-accent-blue to-accent-purple bg-clip-text text-transparent text-center lg:text-left">
+              My journey so far
+            </h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300 mt-4 text-center lg:text-left">
+              Professional experiences that shaped my expertise
+            </p>
+          </div>
+          
+          <div className="lg:w-3/5 w-full">
+            {EXPERIENCE.map((exp, index) => (
+              <ExperienceCollapsible key={index} experience={exp} index={index} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

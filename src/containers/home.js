@@ -4,6 +4,7 @@ import AboutSection from "./about";
 import Projects from "./projects";
 import Experience from "./experience";
 import Connect from "./contact";
+import BackToTop from "../components/BackToTop";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -22,13 +23,18 @@ export default function Home() {
   }, [fragment]);
 
   return (
-    <div className="space-y-12">
+    <div className="min-h-screen">
       <NavBar />
-      <IntroSection />
-      <AboutSection />
-      <Projects />
-      <Experience />
-      <Connect />
+      <div className="lg:ml-64 lg:pl-0 pl-0">
+        <div className="space-y-32">
+          <IntroSection />
+          <AboutSection />
+          <Projects />
+          <Experience />
+          <Connect />
+        </div>
+      </div>
+      <BackToTop />
     </div>
   );
 }
