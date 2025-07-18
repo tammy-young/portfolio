@@ -19,15 +19,25 @@ const style = {
 function ProjectModal({ project, handleClose }) {
   return (
     <div className=''>
-      <div className='pr-2 pb-2 rounded-full w-max cursor-pointer'>
-        <CloseIcon onClick={handleClose} className='dark:text-white' />
-      </div>
+      <button className="bg-white rounded-full p-3 shadow-lg m-6 fixed top-0 left-0 z-50" onClick={handleClose}>
+        <CloseIcon className='dark:text-white text-neutral-400' />
+      </button>
       <img src={project.image} className='top-0' alt={project.name}></img>
       <div className='flex flex-col gap-2 dark:text-white'>
         <div className='flex flex-row gap-2 items-center'>
-          <h2 className='text-3xl font-bold'>{project.name}</h2>
-          <OpenInNewIcon className='cursor-pointer text-neutral-500 dark:text-neutral-300' onClick={() => window.open(project.link, '_blank')} />
-          {project.url && <LinkIcon className='cursor-pointer text-neutral-500 dark:text-neutral-300' onClick={() => window.open(project.url, '_blank')} />}
+          <h2 className='text-3xl font-bold text-main'>{project.name}</h2>
+          <div className='flex items-center justify-center'>
+            <button className='bg-neutral-200/80 !p-[0.9rem] rounded w-6 h-6 flex justify-center items-center' onClick={() => window.open(project.link, '_blank')}>
+              <OpenInNewIcon className='text-sky-500 dark:text-neutral-300 m-2' fontSize='small' />
+            </button>
+          </div>
+          {
+            project.url && (
+              <button className='bg-neutral-200/80 !p-[0.9rem] rounded w-6 h-6 flex justify-center items-center' onClick={() => window.open(project.link, '_blank')}>
+                <LinkIcon className='text-sky-500 dark:text-neutral-300' onClick={() => window.open(project.url, '_blank')} />
+              </button>
+            )
+          }
         </div>
         <p>{project.description}</p>
       </div>
@@ -45,13 +55,13 @@ function Project({ project }) {
   };
 
   return (
-    <div className="border border-neutral-300 dark:border-none dark:bg-neutral-700 rounded-lg text-left sm:w-[45%] lg:w-[30%] max-w-[490px] w-full cursor-pointer h-[400px]">
+    <div className="bg-white shadow-lg dark:border-none dark:bg-neutral-700 rounded-xl text-left sm:w-[45%] lg:w-[30%] max-w-[490px] w-full cursor-pointer h-[400px] hover:shadow-xl hover:shadow-main-light/20 transition-shadow duration-300">
       <div onClick={handleOpen} className='flex flex-col justify-between h-full'>
-        <div className='flex justify-center items-center content-center text-center h-full'>
-          <img src={project.image} className='' alt={project.name}></img>
+        <div className='flex justify-center items-center content-center text-center h-full p-6'>
+          <img src={project.image} alt={project.name} />
         </div>
-        <div className="p-4 dark:text-white">
-          <h2 className="text-2xl font-bold">{project.name}</h2>
+        <div className="p-6 dark:text-white">
+          <h2 className="text-2xl font-bold text-main">{project.name}</h2>
           <p>{project.summary}</p>
         </div>
       </div>
@@ -72,10 +82,13 @@ function Project({ project }) {
 
 const Projects = () => {
   return (
-    <div className="text-center px-[5%]" id="projects">
-      <h1 className="text-5xl font-bold pb-4 dark:text-white">I love building things</h1>
+    <div className="text-center min-h-screen flex flex-col gap-8" id="projects">
+      <div className='flex flex-col items-center justify-center'>
+        <h1 className="text-5xl font-bold pb-4 text-main dark:text-white">I love building things</h1>
+        <p>Explore my latest projects and creative solutions</p>
+      </div>
       <div className="flex items-center justify-center w-full">
-        <div className="flex justify-center flex-wrap gap-4 max-w-[1500px]">
+        <div className="flex justify-center flex-wrap gap-8 max-w-[1500px]">
           {PROJECTS.map((project) =>
             <Project project={project} />
           )}

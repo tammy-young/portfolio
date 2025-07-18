@@ -6,7 +6,7 @@ const AboutSection = () => {
         <div className="flex items-center !text-center justify-center flex-wrap xl:w-fit w-full">
           <p className="text-5xl font-bold min-w-max text-main">About&nbsp;me</p>
         </div>
-        <div className="flex flex-col gap-4 bg-white shadow-lg rounded-lg p-6 dark:bg-neutral-700 dark:text-white max-w-[500px]">
+        <div className="flex flex-col gap-4 bg-white shadow-lg rounded-xl p-6 dark:bg-neutral-700 dark:text-white max-w-[500px]">
           <p>
             I am a Computer Science new-graduate from the University of Alberta with a passion for building innovative and
             impactful software. With experience in <span className="font-bold">AI</span>, <span className="font-bold">full-stack web development</span>, and <span className="font-bold">cloud technologies</span>, I specialize in

@@ -14,26 +14,26 @@ const IntroSection = () => {
           <h4 className='dark:text-white max-w-[400px]'>Passionate software developer/engineer creating innovative solutions in Canada.</h4>
           <div className="flex flex-row gap-4">
             <button
-              className="bg-main p-3 px-6 rounded-full text-white shadow-lg font-bold"
+              className="bg-main p-3 px-6 rounded-full text-white shadow-lg font-bold hover:bg-main-light hover:shadow-xl transition-colors duration-300 flex justify-center items-center"
               onClick={() => window.open('/docs/Resume_Tammy_Young.pdf', '_blank')}
             >
               Resume
             </button>
             <button
-              className="bg-[#0072b1] p-3 rounded-full text-white shadow-lg"
+              className="bg-[#0072b1] p-3 rounded-full text-white shadow-lg hover:bg-main-light hover:shadow-xl transition-colors duration-300 flex justify-center items-center"
               onClick={() => window.open('https://www.linkedin.com/in/tammyqyoung/', '_blank')}
             >
               <LinkedInIcon />
             </button>
             <button
-              className="bg-black p-3 rounded-full text-white shadow-lg"
+              className="bg-black p-3 rounded-full text-white shadow-lg hover:bg-main-light hover:shadow-xl transition-colors duration-300 flex justify-center items-center"
               onClick={() => window.open('https://github.com/tammy-young/', '_blank')}
             >
               <GitHubIcon />
             </button>
           </div>
         </div>
-        <img src="/images/headshot.jpeg" alt="Tammy Young" className="sm:w-1/3 w-5/6 rounded-full border-4 border-white shadow-xl"></img>
+        <img src="/images/headshot.jpeg" alt="Tammy Young" className="sm:w-1/3 w-5/6 rounded-full border-4 border-white shadow-xl hover:shadow-main-light/20 transition-shadow duration-300"></img>
       </div>
     </div>
   )
