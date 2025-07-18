@@ -24,16 +24,12 @@ export default function Home() {
   return (
     <div className="flex md:flex-row scroll-smooth">
       <Navigation />
-      <div className="flex flex-col sm:pb-20 pb-12 snap-y snap-mandatory overflow-y-scroll h-screen">
-        <div className="snap-start snap-always">
-          <IntroSection />
-        </div>
-        <div className="snap-start snap-always">
-          <AboutSection />
-          <Projects />
-          <Experience />
-          <Connect />
-        </div>
+      <div className="flex flex-col sm:pb-20 pb-12">
+        <IntroSection />
+        <AboutSection />
+        <Projects />
+        <Experience />
+        <Connect />
       </div>
     </div>
   );
