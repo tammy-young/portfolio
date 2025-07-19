@@ -193,7 +193,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="text-center min-h-fit flex flex-col gap-4 sm:gap-6 lg:gap-8 px-2 sm:px-4 justify-center items-center py-6 sm:py-8 min-h-screen" id="projects">
+    <div className="text-center min-h-screen flex flex-col gap-4 sm:gap-6 lg:gap-8 px-2 sm:px-4 justify-center items-center py-6 sm:py-8 min-h-screen" id="projects">
       <div className='flex flex-col items-center justify-center px-4'>
         <h1 className="text-5xl font-bold pb-2 sm:pb-4 text-main">I love building things</h1>
         <p className='dark:text-white text-center max-w-2xl'>Explore my latest projects and creative solutions</p>
