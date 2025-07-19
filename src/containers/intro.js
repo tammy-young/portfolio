@@ -33,7 +33,7 @@ const IntroSection = () => {
             </Button>
           </div>
         </div>
-        <img src="/images/headshot.jpeg" alt="Tammy Young" className="xl:w-1/3 sm:w-1/2 w-3/4 rounded-full border-4 border-white hover:border-secondary shadow-xl hover:shadow-secondary/30 transition-all duration-300"></img>
+        <img src="/images/headshot.jpeg" alt="Tammy Young" className="xl:w-1/3 sm:w-1/2 w-3/4 rounded-full border-4 border-white hover:border-main shadow-xl hover:shadow-main/30 transition-all duration-300"></img>
       </div>
     </div>
   )
