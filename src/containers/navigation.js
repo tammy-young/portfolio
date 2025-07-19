@@ -109,8 +109,8 @@ const NavMenu = ({ setIsOpen = null }) => {
           </div>
         )
       }
-      <Link className="flex flex-col cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} to="/#">
-        <h1 className="text-3xl font-bold text-main">Tammy Young</h1>
+      <Link className="flex flex-col" to="#intro">
+        <h1 className="text-3xl font-bold pb-1 text-main">Tammy Young</h1>
         <p className="text-neutral-500 font-normal dark:text-neutral-400">Software Developer</p>
       </Link>
       {
