@@ -21,8 +21,8 @@ const style = {
 function ProjectModal({ project, handleClose }) {
   return (
     <div className="relative">
-      <button 
-        className="bg-white dark:bg-neutral-700 rounded-full p-2 sm:p-3 shadow-lg absolute top-2 sm:top-4 right-2 sm:right-4 z-50 hover:bg-gray-50 dark:hover:bg-neutral-600 transition-colors" 
+      <button
+        className="bg-white dark:bg-neutral-700 rounded-full p-2 sm:p-3 shadow-lg absolute top-2 sm:top-4 right-2 sm:right-4 z-50 hover:bg-gray-50 dark:hover:bg-neutral-600 transition-colors"
         onClick={handleClose}
       >
         <CloseIcon className='dark:text-white text-neutral-400' />
@@ -32,15 +32,15 @@ function ProjectModal({ project, handleClose }) {
         <div className='flex flex-row gap-2 sm:gap-3 sm:items-center'>
           <h2 className='text-xl sm:text-2xl lg:text-3xl font-bold text-main'>{project.name}</h2>
           <div className='flex items-center gap-2'>
-            <button 
-              className='bg-neutral-200/80 dark:bg-neutral-700 p-2 sm:p-[0.6rem] rounded w-8 h-8 sm:w-9 sm:h-9 flex justify-center items-center hover:bg-neutral-300/80 dark:hover:bg-neutral-600 transition-colors' 
+            <button
+              className='bg-neutral-200/80 dark:bg-neutral-700 p-2 sm:p-[0.6rem] rounded w-8 h-8 sm:w-9 sm:h-9 flex justify-center items-center hover:bg-neutral-300/80 dark:hover:bg-neutral-600 transition-colors'
               onClick={() => window.open(project.link, '_blank')}
             >
               <OpenInNewIcon className='text-sky-500' fontSize='small' />
             </button>
             {project.url && (
-              <button 
-                className='bg-neutral-200/80 dark:bg-neutral-700 p-2 sm:p-[0.6rem] rounded w-8 h-8 sm:w-9 sm:h-9 flex justify-center items-center hover:bg-neutral-300/80 dark:hover:bg-neutral-600 transition-colors' 
+              <button
+                className='bg-neutral-200/80 dark:bg-neutral-700 p-2 sm:p-[0.6rem] rounded w-8 h-8 sm:w-9 sm:h-9 flex justify-center items-center hover:bg-neutral-300/80 dark:hover:bg-neutral-600 transition-colors'
                 onClick={() => window.open(project.url, '_blank')}
               >
                 <LinkIcon className='text-sky-500' fontSize='small' />
@@ -143,6 +143,7 @@ const Projects = () => {
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
+    // eslint-disable-next-line
   }, []);
 
   const nextProject = () => {
@@ -180,7 +181,7 @@ const Projects = () => {
 
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
-    
+
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
@@ -198,9 +199,9 @@ const Projects = () => {
         <h1 className="text-5xl font-bold pb-2 sm:pb-4 text-main">I love building things</h1>
         <p className='dark:text-white text-center max-w-2xl'>Explore my latest projects and creative solutions</p>
       </div>
-      
+
       {/* Carousel Container */}
-      <div 
+      <div
         className="relative w-full max-w-[320px] sm:max-w-[640px] xl:max-w-[1000px] 2xl:max-w-[1400px]"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
@@ -231,10 +232,9 @@ const Projects = () => {
 
         {/* Projects Display */}
         <div className={`${PROJECTS.length > projectsPerView ? 'mx-0 sm:mx-8 lg:mx-12' : 'mx-0'} overflow-hidden pb-8`}>
-          <div 
-            className={`flex transition-transform duration-300 ease-in-out ${
-              isTransitioning ? 'pointer-events-none' : ''
-            }`}
+          <div
+            className={`flex transition-transform duration-300 ease-in-out ${isTransitioning ? 'pointer-events-none' : ''
+              }`}
             style={{
               transform: `translateX(-${currentIndex * 100}%)`,
             }}
@@ -244,14 +244,14 @@ const Projects = () => {
               const startIdx = slideIndex * projectsPerView;
               const endIdx = Math.min(startIdx + projectsPerView, PROJECTS.length);
               const slideProjects = PROJECTS.slice(startIdx, endIdx);
-              
+
               return (
-                <div 
+                <div
                   key={`slide-${slideIndex}`}
                   className="flex min-w-full gap-4 px-2 sm:px-3 lg:px-4"
                 >
                   {slideProjects.map((project, projectIndex) => (
-                    <div 
+                    <div
                       key={`project-${startIdx + projectIndex}`}
                       className="flex-1"
                     >
@@ -259,7 +259,7 @@ const Projects = () => {
                     </div>
                   ))}
                   {/* Fill empty spaces if this is the last slide and it's not full */}
-                  {slideProjects.length < projectsPerView && 
+                  {slideProjects.length < projectsPerView &&
                     Array.from({ length: projectsPerView - slideProjects.length }, (_, emptyIndex) => (
                       <div key={`empty-${slideIndex}-${emptyIndex}`} className="flex-1" />
                     ))
@@ -277,11 +277,10 @@ const Projects = () => {
               <button
                 key={`dot-${index}`}
                 onClick={() => goToProject(index)}
-                className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex
+                className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${index === currentIndex
                     ? 'bg-main scale-110'
                     : 'bg-gray-300 dark:bg-neutral-600 hover:bg-gray-400 dark:hover:bg-neutral-500'
-                }`}
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
