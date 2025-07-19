@@ -30,20 +30,20 @@ function ProjectModal({ project, handleClose }) {
       <img src={project.image} className='w-full rounded-t-lg object-contain max-h-[40vh] sm:max-h-[50vh]' alt={project.name}></img>
       <div className='flex flex-col gap-2 sm:gap-3 dark:text-white p-4 sm:p-6'>
         <div className='flex flex-row gap-2 sm:gap-3 sm:items-center'>
-          <h2 className='text-xl sm:text-2xl lg:text-3xl font-bold text-main'>{project.name}</h2>
+          <h2 className='text-xl sm:text-2xl lg:text-3xl font-bold dark:text-white'>{project.name}</h2>
           <div className='flex items-center gap-2'>
             <button
               className='bg-neutral-200/80 dark:bg-neutral-700 p-2 sm:p-[0.6rem] rounded w-8 h-8 sm:w-9 sm:h-9 flex justify-center items-center hover:bg-neutral-300/80 dark:hover:bg-neutral-600 transition-colors'
               onClick={() => window.open(project.link, '_blank')}
             >
-              <OpenInNewIcon className='text-sky-500' fontSize='small' />
+              <OpenInNewIcon className='text-tertiary' fontSize='small' />
             </button>
             {project.url && (
               <button
                 className='bg-neutral-200/80 dark:bg-neutral-700 p-2 sm:p-[0.6rem] rounded w-8 h-8 sm:w-9 sm:h-9 flex justify-center items-center hover:bg-neutral-300/80 dark:hover:bg-neutral-600 transition-colors'
                 onClick={() => window.open(project.url, '_blank')}
               >
-                <LinkIcon className='text-sky-500' fontSize='small' />
+                <LinkIcon className='text-main' fontSize='small' />
               </button>
             )}
           </div>
@@ -71,8 +71,8 @@ function Project({ project }) {
           <div className='absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
         </div>
         <div className="p-3 sm:p-4 lg:p-6 dark:text-white">
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-main mb-1 sm:mb-2">{project.name}</h2>
-          <p className="text-sm lg:text-base line-clamp-2 sm:line-clamp-3">{project.summary}</p>
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold dark:text-white mb-1 sm:mb-2">{project.name}</h2>
+          <p className="text-sm lg:text-base line-clamp-2 sm:line-clamp-3 text-neutral-500">{project.summary}</p>
         </div>
       </div>
 
@@ -196,7 +196,7 @@ const Projects = () => {
   return (
     <div className="text-center min-h-dvh flex flex-col gap-4 sm:gap-6 lg:gap-8 px-2 sm:px-4 justify-center items-center py-6 sm:py-8" id="projects">
       <div className='flex flex-col items-center justify-center px-4'>
-        <h1 className="text-5xl font-bold pb-2 sm:pb-4 text-main">I love building things</h1>
+        <h1 className="text-5xl font-bold pb-2 sm:pb-4 text-transparent bg-clip-text bg-gradient-to-r from-secondary to-main">I love building things</h1>
         <p className='dark:text-white text-center max-w-2xl'>Explore my latest projects and creative solutions</p>
       </div>
 
@@ -216,7 +216,7 @@ const Projects = () => {
               className="hidden sm:block absolute left-2 lg:left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-neutral-800 rounded-full p-2 lg:p-3 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Previous project"
             >
-              <ArrowBackIosIcon className="text-main dark:text-white ml-1 text-sm lg:text-base" />
+              <ArrowBackIosIcon className="text-secondary dark:text-white ml-1 text-sm lg:text-base" />
             </button>
 
             <button
@@ -225,7 +225,7 @@ const Projects = () => {
               className="hidden sm:block absolute right-2 lg:right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-neutral-800 rounded-full p-2 lg:p-3 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Next project"
             >
-              <ArrowForwardIosIcon className="text-main dark:text-white text-sm lg:text-base" />
+              <ArrowForwardIosIcon className="text-tertiary dark:text-white text-sm lg:text-base" />
             </button>
           </>
         )}
@@ -278,7 +278,7 @@ const Projects = () => {
                 key={`dot-${index}`}
                 onClick={() => goToProject(index)}
                 className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${index === currentIndex
-                    ? 'bg-main scale-110'
+                    ? `bg-main scale-110`
                     : 'bg-gray-300 dark:bg-neutral-600 hover:bg-gray-400 dark:hover:bg-neutral-500'
                   }`}
                 aria-label={`Go to slide ${index + 1}`}

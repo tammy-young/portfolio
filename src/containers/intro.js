@@ -9,7 +9,7 @@ const IntroSection = () => {
         <div className="flex flex-col justify-center gap-4">
           <div className='dark:text-white'>
             <h4 className="">Nice to meet you,</h4>
-            <h1 className="text-7xl font-bold w-max text-main">I'm Tammy</h1>
+            <h1 className="text-7xl font-bold w-max text-transparent bg-clip-text bg-gradient-to-r from-main to-tertiary">I'm Tammy</h1>
           </div>
           <h4 className='dark:text-white max-w-[400px]'>Passionate software developer/engineer creating innovative solutions in Canada.</h4>
           <div className="flex flex-row gap-4">
@@ -33,7 +33,7 @@ const IntroSection = () => {
             </Button>
           </div>
         </div>
-        <img src="/images/headshot.jpeg" alt="Tammy Young" className="xl:w-1/3 sm:w-1/2 w-3/4 rounded-full border-4 border-white hover:border-main-light shadow-xl hover:shadow-main-light/20 transition-all duration-300"></img>
+        <img src="/images/headshot.jpeg" alt="Tammy Young" className="xl:w-1/3 sm:w-1/2 w-3/4 rounded-full border-4 border-white hover:border-secondary shadow-xl hover:shadow-secondary/30 transition-all duration-300"></img>
       </div>
     </div>
   )

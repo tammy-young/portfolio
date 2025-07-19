@@ -30,8 +30,8 @@ function ExperienceCollapsible({ experience }) {
         id="panel1-header"
       >
         <div className='flex flex-col'>
-          <p className='text-2xl font-bold text-main'>{experience.title}</p>
-          <p className='dark:text-neutral-300'>{experience.company}</p>
+          <p className='text-2xl font-bold dark:text-white'>{experience.title}</p>
+          <p className='dark:text-neutral-300 text-neutral-500'>{experience.company}</p>
         </div>
       </AccordionSummary>
       <AccordionDetails>
@@ -44,7 +44,7 @@ function ExperienceCollapsible({ experience }) {
             <div className='flex flex-row flex-wrap gap-2'>
               {
                 experience.skills.map((skill, index) => (
-                  <span key={index} className='bg-main-light/50 dark:bg-main-light text-main-dark rounded-full px-2 py-1 text-sm'>
+                  <span key={index} className={`bg-secondary/80 dark:bg-secondary/80 text-black rounded-full px-2 py-1 text-sm font-medium`}>
                     {skill}
                   </span>
                 ))
@@ -70,7 +70,7 @@ const Experience = () => {
     <div className="flex justify-center items-center relative min-h-dvh sm:py-8 py-20 px-4 sm:px-[5%]" id="experience">
       <div className='text-center flex xl:flex-row flex-col items-center max-w-[1200px] justify-between xl:gap-8 gap-4'>
         <div className='flex flex-col sm:!text-left'>
-          <h1 className="text-5xl font-bold pb-4 text-main">My journey so far</h1>
+          <h1 className="text-5xl font-bold pb-2 sm:pb-4 text-transparent bg-clip-text bg-gradient-to-r from-main to-tertiary">My journey so far</h1>
           <p className='dark:text-white'>Professional experiences that shaped my expertise</p>
         </div>
         <div className="flex flex-col xl:w-3/5 gap-2 xl:max-h-[600px] 2xl:max-h-[700px] max-h-[400px] overflow-y-auto pb-8">
