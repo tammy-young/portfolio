@@ -14,32 +14,55 @@ const useActiveSection = () => {
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = NAV_ITEMS.map(item => item.hash.substring(1)); // Remove '#' from hash
-      const scrollPosition = window.scrollY + 100; // Offset for better detection
+    const sections = NAV_ITEMS.map(item => item.hash.substring(1));
+    const sectionElements = sections.map(id => document.getElementById(id)).filter(Boolean);
 
-      // Check if we're at the top of the page
-      if (window.scrollY < 100) {
-        setActiveSection('');
-        return;
-      }
+    if (sectionElements.length === 0) return;
 
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(sectionId);
-            break;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Find the section that's most visible
+        let mostVisible = null;
+        let maxRatio = 0;
+
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+            maxRatio = entry.intersectionRatio;
+            mostVisible = entry.target.id;
+          }
+        });
+
+        // If we have a most visible section, set it as active
+        if (mostVisible) {
+          setActiveSection(mostVisible);
+        } else {
+          // Check if we're at the top of the page (before any sections)
+          if (window.scrollY < 100) {
+            setActiveSection('');
           }
         }
+      },
+      {
+        threshold: [0.1, 0.3, 0.5, 0.7], // Multiple thresholds for better detection
+        rootMargin: '-20% 0px -20% 0px' // Only consider the middle 60% of viewport
+      }
+    );
+
+    // Observe all sections
+    sectionElements.forEach(element => observer.observe(element));
+
+    // Initial check for page load
+    const handleInitialCheck = () => {
+      if (window.scrollY < 100) {
+        setActiveSection('');
       }
     };
+    handleInitialCheck();
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial position
-
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      sectionElements.forEach(element => observer.unobserve(element));
+      observer.disconnect();
+    };
   }, []);
 
   return activeSection;
