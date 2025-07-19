@@ -25,11 +25,11 @@ function ProjectModal({ project, handleClose }) {
         className="bg-white dark:bg-neutral-700 rounded-full p-2 sm:p-3 shadow-lg absolute top-2 sm:top-4 right-2 sm:right-4 z-50 hover:bg-gray-50 dark:hover:bg-neutral-600 transition-colors" 
         onClick={handleClose}
       >
-        <CloseIcon className='dark:text-white text-neutral-400 text-sm sm:text-base' />
+        <CloseIcon className='dark:text-white text-neutral-400' />
       </button>
       <img src={project.image} className='w-full rounded-t-lg object-contain max-h-[40vh] sm:max-h-[50vh]' alt={project.name}></img>
       <div className='flex flex-col gap-2 sm:gap-3 dark:text-white p-4 sm:p-6'>
-        <div className='flex flex-col sm:flex-row gap-2 sm:gap-3 sm:items-center'>
+        <div className='flex flex-row gap-2 sm:gap-3 sm:items-center'>
           <h2 className='text-xl sm:text-2xl lg:text-3xl font-bold text-main'>{project.name}</h2>
           <div className='flex items-center gap-2'>
             <button 
@@ -48,7 +48,7 @@ function ProjectModal({ project, handleClose }) {
             )}
           </div>
         </div>
-        <p className="text-sm sm:text-base leading-relaxed">{project.description}</p>
+        <p className="leading-relaxed">{project.description}</p>
       </div>
     </div>
   )
@@ -66,13 +66,13 @@ function Project({ project }) {
   return (
     <div className="group bg-white shadow-lg dark:border-none dark:bg-neutral-800 rounded-xl text-left w-full cursor-pointer h-[320px] sm:h-[380px] lg:h-[425px] hover:shadow-xl hover:shadow-main-light/20 transition-shadow duration-300">
       <div onClick={handleOpen} className='flex flex-col justify-between h-full'>
-        <div className='relative overflow-hidden rounded-t-2xl h-3/5 sm:h-2/3'>
+        <div className='relative overflow-hidden rounded-t-2xl h-4/5 sm:h-3/4'>
           <img src={project.image} className='w-full h-full object-contain group-hover:scale-105 transition-transform duration-500' alt={project.name}></img>
           <div className='absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
         </div>
         <div className="p-3 sm:p-4 lg:p-6 dark:text-white">
           <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-main mb-1 sm:mb-2">{project.name}</h2>
-          <p className="text-xs sm:text-sm lg:text-base line-clamp-2 sm:line-clamp-3">{project.summary}</p>
+          <p className="text-sm lg:text-base line-clamp-2 sm:line-clamp-3">{project.summary}</p>
         </div>
       </div>
 
@@ -101,7 +101,7 @@ const Projects = () => {
     if (typeof window !== 'undefined') {
       if (window.innerWidth >= 1536) return 3; // 2xl screens
       if (window.innerWidth >= 1280) return 3; // xl screens
-      if (window.innerWidth >= 1024) return 2; // lg screens
+      if (window.innerWidth >= 1024) return 1; // lg screens - changed to 1
       if (window.innerWidth >= 768) return 2;  // md screens
       if (window.innerWidth >= 640) return 1;  // sm screens
       return 1; // mobile
@@ -193,15 +193,15 @@ const Projects = () => {
   };
 
   return (
-    <div className="text-center min-h-fit flex flex-col gap-4 sm:gap-6 lg:gap-8 px-2 sm:px-4 justify-center items-center py-6 sm:py-8" id="projects">
+    <div className="text-center min-h-fit flex flex-col gap-4 sm:gap-6 lg:gap-8 px-2 sm:px-4 justify-center items-center py-6 sm:py-8 min-h-screen" id="projects">
       <div className='flex flex-col items-center justify-center px-4'>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold pb-2 sm:pb-4 text-main">I love building things</h1>
-        <p className='dark:text-white text-sm sm:text-base text-center max-w-2xl'>Explore my latest projects and creative solutions</p>
+        <h1 className="text-5xl font-bold pb-2 sm:pb-4 text-main">I love building things</h1>
+        <p className='dark:text-white text-center max-w-2xl'>Explore my latest projects and creative solutions</p>
       </div>
       
       {/* Carousel Container */}
       <div 
-        className="relative w-full max-w-[320px] sm:max-w-[640px] lg:max-w-[1024px] xl:max-w-[1280px] 2xl:max-w-[1400px]"
+        className="relative w-full max-w-[320px] sm:max-w-[640px] xl:max-w-[1000px] 2xl:max-w-[1400px]"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -212,7 +212,7 @@ const Projects = () => {
             <button
               onClick={prevProject}
               disabled={isTransitioning}
-              className="hidden sm:block absolute left-2 lg:left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-neutral-800 rounded-full p-2 lg:p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50 dark:hover:bg-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="hidden sm:block absolute left-2 lg:left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-neutral-800 rounded-full p-2 lg:p-3 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Previous project"
             >
               <ArrowBackIosIcon className="text-main dark:text-white ml-1 text-sm lg:text-base" />
@@ -221,7 +221,7 @@ const Projects = () => {
             <button
               onClick={nextProject}
               disabled={isTransitioning}
-              className="hidden sm:block absolute right-2 lg:right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-neutral-800 rounded-full p-2 lg:p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50 dark:hover:bg-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="hidden sm:block absolute right-2 lg:right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white dark:bg-neutral-800 rounded-full p-2 lg:p-3 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
               aria-label="Next project"
             >
               <ArrowForwardIosIcon className="text-main dark:text-white text-sm lg:text-base" />
@@ -230,7 +230,7 @@ const Projects = () => {
         )}
 
         {/* Projects Display */}
-        <div className={`${PROJECTS.length > projectsPerView ? 'mx-0 sm:mx-8 lg:mx-12' : 'mx-0'} overflow-hidden`}>
+        <div className={`${PROJECTS.length > projectsPerView ? 'mx-0 sm:mx-8 lg:mx-12' : 'mx-0'} overflow-hidden pb-8`}>
           <div 
             className={`flex transition-transform duration-300 ease-in-out ${
               isTransitioning ? 'pointer-events-none' : ''
