@@ -67,13 +67,13 @@ function ExperienceCollapsible({ experience }) {
 
 const Experience = () => {
   return (
-    <div className="flex justify-center items-center relative min-h-fit sm:py-8 py-20 px-4 sm:px-[5%]" id="experience">
+    <div className="flex justify-center items-center relative min-h-screen sm:py-8 py-20 px-4 sm:px-[5%]" id="experience">
       <div className='text-center flex xl:flex-row flex-col items-center max-w-[1200px] justify-between xl:gap-8 gap-4'>
         <div className='flex flex-col sm:!text-left'>
           <h1 className="text-5xl font-bold pb-4 text-main">My journey so far</h1>
-          <p className='!text-left dark:text-white'>Professional experiences that shaped my expertise</p>
+          <p className='dark:text-white'>Professional experiences that shaped my expertise</p>
         </div>
-        <div className="flex flex-col xl:w-3/5 gap-2">
+        <div className="flex flex-col xl:w-3/5 gap-2 xl:max-h-[600px] 2xl:max-h-[700px] max-h-[400px] overflow-y-auto pb-8">
           {
             EXPERIENCE.map((exp, index) => (
               <ExperienceCollapsible key={index} experience={exp} />
