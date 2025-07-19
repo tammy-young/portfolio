@@ -4,7 +4,7 @@ const AboutSection = () => {
     <div className="relative min-h-dvh w-full flex justify-center items-center px-4" id="about">
       <div className="flex xl:flex-row flex-col xl:gap-16 gap-4">
         <div className="flex items-center !text-center justify-center flex-wrap xl:w-fit w-full">
-          <h1 className="text-5xl font-bold pb-2 sm:pb-4 text-transparent bg-clip-text bg-gradient-to-r from-tertiary to-secondary">About me</h1>
+          <h1 className="text-5xl font-bold pb-2 sm:pb-4 text-transparent bg-clip-text bg-gradient-to-r from-main to-secondary">About me</h1>
         </div>
         <div className="flex flex-col gap-4 bg-white shadow-lg rounded-xl p-6 dark:bg-neutral-800 dark:text-white max-w-[500px]">
           <p>
