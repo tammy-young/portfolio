@@ -75,12 +75,12 @@ const NavHamburger = () => {
     <div>
       {isOpen && (
         <div
-          className="fixed w-screen h-screen bg-black bg-opacity-50 z-[99] transition-opacity duration-300"
+          className="fixed w-screen h-dvh bg-black bg-opacity-50 z-[99] transition-opacity duration-300"
           onClick={() => setIsOpen(false)}
         />
       )}
 
-      <div className={`fixed top-0 left-0 h-screen w-2/3 max-w-[320px] z-[100] transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'
+      <div className={`fixed top-0 left-0 h-dvh w-2/3 max-w-[320px] z-[100] transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}>
         <NavMenu setIsOpen={setIsOpen} />
       </div>
@@ -99,7 +99,7 @@ const NavMenu = ({ setIsOpen = null }) => {
   const activeSection = useActiveSection();
 
   return (
-    <div className="flex flex-col justify-center dark:text-neutral-400 h-screen bg-white dark:bg-neutral-800 gap-12 px-8 w-full font-semibold shadow-xl absolute left-0 sticky top-0">
+    <div className="flex flex-col justify-center dark:text-neutral-400 h-dvh bg-white dark:bg-neutral-800 gap-12 px-8 w-full font-semibold shadow-xl absolute left-0 sticky top-0">
       {
         setIsOpen && (
           <div className="absolute top-2 right-0 w-full h-16 flex items-center justify-end px-4">
