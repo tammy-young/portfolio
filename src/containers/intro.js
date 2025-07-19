@@ -4,7 +4,7 @@ import Button from '../components/button.js';
 
 const IntroSection = () => {
   return (
-    <div className="px-[5%] flex justify-center relative min-h-screen w-full" id="intro">
+    <div className="px-[5%] flex justify-center relative min-h-dvh w-full" id="intro">
       <div className='flex xl:flex-row flex-col xl:justify-around justify-center items-center xl:gap-0 gap-5'>
         <div className="flex flex-col justify-center gap-4">
           <div className='dark:text-white'>

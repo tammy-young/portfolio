@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div className="flex md:flex-row scroll-smooth">
       <Navigation />
-      <div className="flex flex-col snap-y snap-mandatory overflow-y-scroll !h-screen">
+      <div className="flex flex-col snap-y snap-mandatory overflow-y-scroll !h-dvh">
         <div className="snap-start snap-always">
           <IntroSection />
         </div>

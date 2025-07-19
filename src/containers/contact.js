@@ -67,7 +67,7 @@ const Connect = () => {
   };
 
   return (
-    <div className="px-4 lg:px-[5%] flex justify-center relative min-h-screen items-center" id="contact">
+    <div className="px-4 lg:px-[5%] flex justify-center relative min-h-dvh items-center" id="contact">
       <div className='text-center flex lg:flex-row flex-col lg:gap-8 gap-5 text-center items-center max-w-[1400px]'>
         <div className="flex flex-col lg:text-left text-center lg:w-1/2">
           <h1 className="text-5xl font-bold pb-4 text-main">Let's connect</h1>
