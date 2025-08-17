@@ -19,6 +19,33 @@ const style = {
 };
 
 function ProjectModal({ project, handleClose }) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isImageTransitioning, setIsImageTransitioning] = useState(false);
+
+  const images = project.images || [];
+  const hasMultipleImages = images.length > 1;
+
+  const nextImage = () => {
+    if (isImageTransitioning) return;
+    setIsImageTransitioning(true);
+    setCurrentImageIndex((prev) => (prev >= images.length - 1 ? 0 : prev + 1));
+    setTimeout(() => setIsImageTransitioning(false), 300);
+  };
+
+  const prevImage = () => {
+    if (isImageTransitioning) return;
+    setIsImageTransitioning(true);
+    setCurrentImageIndex((prev) => (prev <= 0 ? images.length - 1 : prev - 1));
+    setTimeout(() => setIsImageTransitioning(false), 300);
+  };
+
+  const goToImage = (index) => {
+    if (isImageTransitioning || index === currentImageIndex) return;
+    setIsImageTransitioning(true);
+    setCurrentImageIndex(index);
+    setTimeout(() => setIsImageTransitioning(false), 300);
+  };
+
   return (
     <div className="relative">
       <button
@@ -27,7 +54,66 @@ function ProjectModal({ project, handleClose }) {
       >
         <CloseIcon className='dark:text-white text-neutral-400' />
       </button>
-      <img src={project.image} className='w-full rounded-t-lg object-contain max-h-[40vh] sm:max-h-[50vh]' alt={project.name}></img>
+
+      <div className="relative">
+        <div className="overflow-hidden rounded-t-lg bg-gray-100 dark:bg-neutral-900">
+          <div
+            className={`flex transition-transform duration-300 ease-in-out ${isImageTransitioning ? 'pointer-events-none' : ''}`}
+            style={{
+              transform: `translateX(-${currentImageIndex * 100}%)`,
+            }}
+          >
+            {images.map((image, index) => (
+              <div key={index} className="min-w-full flex justify-center">
+                <img
+                  src={image}
+                  className='w-full max-h-[40vh] sm:max-h-[50vh] object-contain'
+                  alt={`${project.name} screenshot ${index + 1}`}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {hasMultipleImages && (
+          <>
+            <button
+              onClick={prevImage}
+              disabled={isImageTransitioning}
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 dark:bg-neutral-800/90 rounded-full p-2 shadow-lg hover:bg-white dark:hover:bg-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              aria-label="Previous image"
+            >
+              <ArrowBackIosIcon className="text-secondary dark:text-white ml-1 text-sm" />
+            </button>
+
+            <button
+              onClick={nextImage}
+              disabled={isImageTransitioning}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 dark:bg-neutral-800/90 rounded-full p-2 shadow-lg hover:bg-white dark:hover:bg-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              aria-label="Next image"
+            >
+              <ArrowForwardIosIcon className="text-tertiary dark:text-white text-sm" />
+            </button>
+          </>
+        )}
+
+        {hasMultipleImages && (
+          <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-1.5">
+            {images.map((_, index) => (
+              <button
+                key={`image-dot-${index}`}
+                onClick={() => goToImage(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImageIndex
+                    ? `bg-main scale-110`
+                    : 'bg-white/60 hover:bg-white/80'
+                  }`}
+                aria-label={`Go to image ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
       <div className='flex flex-col gap-2 sm:gap-3 dark:text-white p-4 sm:p-6'>
         <div className='flex flex-row gap-2 sm:gap-3 sm:items-center'>
           <h2 className='text-xl sm:text-2xl lg:text-3xl font-bold dark:text-white'>{project.name}</h2>
@@ -67,7 +153,7 @@ function Project({ project }) {
     <div className="group bg-white shadow-lg dark:border-none dark:bg-neutral-800 rounded-xl text-left w-full cursor-pointer h-[320px] sm:h-[380px] lg:h-[425px] hover:shadow-xl hover:shadow-main-light/20 transition-shadow duration-300">
       <div onClick={handleOpen} className='flex flex-col justify-between h-full'>
         <div className='relative overflow-hidden rounded-t-2xl h-4/5 sm:h-3/4'>
-          <img src={project.image} className='w-full h-full object-contain group-hover:scale-105 transition-transform duration-500' alt={project.name}></img>
+          <img src={project.images[0]} className='w-full h-full object-contain group-hover:scale-105 transition-transform duration-500' alt={project.name}></img>
           <div className='absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
         </div>
         <div className="p-3 sm:p-4 lg:p-6 dark:text-white">
@@ -278,8 +364,8 @@ const Projects = () => {
                 key={`dot-${index}`}
                 onClick={() => goToProject(index)}
                 className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${index === currentIndex
-                    ? `bg-main scale-110`
-                    : 'bg-gray-300 dark:bg-neutral-600 hover:bg-gray-400 dark:hover:bg-neutral-500'
+                  ? `bg-main scale-110`
+                  : 'bg-gray-300 dark:bg-neutral-600 hover:bg-gray-400 dark:hover:bg-neutral-500'
                   }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
