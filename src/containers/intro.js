@@ -9,7 +9,7 @@ const IntroSection = () => {
         <div className="flex flex-col justify-center gap-4">
           <div className='dark:text-white'>
             <h4 className="">Nice to meet you,</h4>
-            <h1 className="text-7xl font-bold w-fit text-transparent bg-clip-text bg-gradient-to-r from-main to-tertiary">I'm Tammy</h1>
+            <h1 className="text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-main to-tertiary leading-[1.1]">I'm Tammy</h1>
           </div>
           <h4 className='dark:text-white max-w-[400px]'>Passionate software developer/engineer creating innovative solutions in Canada.</h4>
           <div className="flex flex-row gap-4">
