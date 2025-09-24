@@ -1,6 +1,6 @@
 const EXPERIENCE = [
   {
-    "title": "Full Stack Developer",
+    "title": "Software Engineer",
     "company": "GROW Women Leaders",
     "location": "Edmonton, AB",
     "duration": "Sept 2024 - Present",
