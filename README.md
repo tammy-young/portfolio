@@ -9,7 +9,7 @@ You can view the live version of my portfolio here: [https://tammy-young.netlify
 ## 🛠️ Built With
 
 - [React](https://reactjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/) or your styling library
+- [Tailwind CSS](https://tailwindcss.com/)
 - Deployed with [Netlify](https://netlify.com/)
 
 ## 📬 Contact
