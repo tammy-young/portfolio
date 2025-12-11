@@ -6,7 +6,9 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import LinkIcon from '@mui/icons-material/Link';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import PROJECTS from '../lib/projects.js';
+import { builder } from '@builder.io/sdk';
+
+builder.init(process.env.REACT_APP_BUILDER_KEY);
 
 const style = {
   position: 'absolute',
@@ -66,7 +68,7 @@ function ProjectModal({ project, handleClose }) {
             {images.map((image, index) => (
               <div key={index} className="min-w-full flex justify-center">
                 <img
-                  src={image}
+                  src={image.link}
                   className='w-full max-h-[40vh] sm:max-h-[50vh] object-contain'
                   alt={`${project.name} screenshot ${index + 1}`}
                 />
@@ -104,8 +106,8 @@ function ProjectModal({ project, handleClose }) {
                 key={`image-dot-${index}`}
                 onClick={() => goToImage(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImageIndex
-                    ? `bg-main scale-110`
-                    : 'bg-white/60 hover:bg-white/80'
+                  ? `bg-main scale-110`
+                  : 'bg-white/60 hover:bg-white/80'
                   }`}
                 aria-label={`Go to image ${index + 1}`}
               />
@@ -153,7 +155,7 @@ function Project({ project }) {
     <div className="group bg-white shadow-lg dark:border-none dark:bg-neutral-800 rounded-xl text-left w-full cursor-pointer h-[320px] sm:h-[380px] lg:h-[425px] hover:shadow-xl hover:shadow-main-light/20 transition-shadow duration-300">
       <div onClick={handleOpen} className='flex flex-col justify-between h-full'>
         <div className='relative overflow-hidden rounded-t-2xl h-4/5 sm:h-3/4'>
-          <img src={project.images[0]} className='w-full h-full object-contain group-hover:scale-105 transition-transform duration-500' alt={project.name}></img>
+          <img src={project.images[0]?.link} className='w-full h-full object-contain group-hover:scale-105 transition-transform duration-500' alt={project.name}></img>
           <div className='absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
         </div>
         <div className="p-3 sm:p-4 lg:p-6 dark:text-white">
@@ -181,6 +183,15 @@ const Projects = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const result = await builder.getAll('project', { options: { noTargeting: true } });
+      setProjects(result);
+    };
+    fetchProjects();
+  }, []);
 
   // Calculate how many projects to show at once based on screen size
   const getProjectsPerView = () => {
@@ -203,7 +214,7 @@ const Projects = () => {
       const newProjectsPerView = getProjectsPerView();
       setProjectsPerView(newProjectsPerView);
       // Reset index if it's out of bounds after resize
-      const newMaxIndex = Math.max(0, Math.ceil(PROJECTS.length / newProjectsPerView) - 1);
+      const newMaxIndex = Math.max(0, Math.ceil(projects.length / newProjectsPerView) - 1);
       if (currentIndex > newMaxIndex) {
         setCurrentIndex(newMaxIndex);
       }
@@ -215,7 +226,7 @@ const Projects = () => {
     }
   }, [currentIndex]);
 
-  const maxIndex = Math.max(0, Math.ceil(PROJECTS.length / projectsPerView) - 1);
+  const maxIndex = Math.max(0, Math.ceil(projects.length / projectsPerView) - 1);
 
   // Keyboard navigation
   useEffect(() => {
@@ -294,7 +305,7 @@ const Projects = () => {
         onTouchEnd={onTouchEnd}
       >
         {/* Navigation Buttons - Hidden on small screens */}
-        {PROJECTS.length > projectsPerView && (
+        {projects.length > projectsPerView && (
           <>
             <button
               onClick={prevProject}
@@ -317,7 +328,7 @@ const Projects = () => {
         )}
 
         {/* Projects Display */}
-        <div className={`${PROJECTS.length > projectsPerView ? 'mx-0 sm:mx-8 lg:mx-12' : 'mx-0'} overflow-hidden pb-8`}>
+        <div className={`${projects.length > projectsPerView ? 'mx-0 sm:mx-8 lg:mx-12' : 'mx-0'} overflow-hidden pb-8`}>
           <div
             className={`flex transition-transform duration-300 ease-in-out ${isTransitioning ? 'pointer-events-none' : ''
               }`}
@@ -326,10 +337,10 @@ const Projects = () => {
             }}
           >
             {/* Group projects into slides */}
-            {Array.from({ length: Math.ceil(PROJECTS.length / projectsPerView) }, (_, slideIndex) => {
+            {Array.from({ length: Math.ceil(projects.length / projectsPerView) }, (_, slideIndex) => {
               const startIdx = slideIndex * projectsPerView;
-              const endIdx = Math.min(startIdx + projectsPerView, PROJECTS.length);
-              const slideProjects = PROJECTS.slice(startIdx, endIdx);
+              const endIdx = Math.min(startIdx + projectsPerView, projects.length);
+              const slideProjects = projects.slice(startIdx, endIdx);
 
               return (
                 <div
@@ -341,7 +352,7 @@ const Projects = () => {
                       key={`project-${startIdx + projectIndex}`}
                       className="flex-1"
                     >
-                      <Project project={project} />
+                      <Project project={project.data} />
                     </div>
                   ))}
                   {/* Fill empty spaces if this is the last slide and it's not full */}
@@ -357,7 +368,7 @@ const Projects = () => {
         </div>
 
         {/* Dots Indicator */}
-        {PROJECTS.length > projectsPerView && (
+        {projects.length > projectsPerView && (
           <div className="flex justify-center mt-4 sm:mt-6 gap-1.5 sm:gap-2">
             {Array.from({ length: maxIndex + 1 }, (_, index) => (
               <button
