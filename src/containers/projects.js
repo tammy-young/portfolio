@@ -224,6 +224,7 @@ const Projects = () => {
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize);
     }
+    // eslint-disable-next-line
   }, [currentIndex]);
 
   const maxIndex = Math.max(0, Math.ceil(projects.length / projectsPerView) - 1);
