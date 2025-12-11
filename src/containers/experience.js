@@ -2,7 +2,11 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import EXPERIENCE from '../lib/experience';
+import { useEffect, useState } from 'react';
+import { builder } from '@builder.io/sdk';
+import { formatDuration } from '../lib/utils';
+
+builder.init(process.env.REACT_APP_BUILDER_KEY);
 
 function ExperienceCollapsible({ experience }) {
   return (
@@ -37,7 +41,7 @@ function ExperienceCollapsible({ experience }) {
       <AccordionDetails>
         <div className='flex flex-col gap-2'>
           <div className='text-left dark:text-white'>
-            {experience.location} | {experience.duration}
+            {experience.location} | {formatDuration(experience.start, experience.end)}
           </div>
           <div className='flex flex-row gap-2 mt-2 dark:text-white'>
             <h3 className='font-bold'>Skills:</h3>
@@ -45,7 +49,7 @@ function ExperienceCollapsible({ experience }) {
               {
                 experience.skills.map((skill, index) => (
                   <span key={index} className={`bg-secondary/80 dark:bg-secondary/80 text-black rounded-full px-2 py-1 text-sm font-medium`}>
-                    {skill}
+                    {skill.name}
                   </span>
                 ))
               }
@@ -55,7 +59,7 @@ function ExperienceCollapsible({ experience }) {
             <h3 className='font-bold'>Responsibilities:</h3>
             <ul className='list-disc pl-5 marker:text-main dark:marker:text-white'>
               {experience.responsibilities.map((responsibility, index) => (
-                <li key={index}>{responsibility}</li>
+                <li key={index}>{responsibility.text}</li>
               ))}
             </ul>
           </div>
@@ -66,6 +70,16 @@ function ExperienceCollapsible({ experience }) {
 }
 
 const Experience = () => {
+  const [experience, setExperience] = useState([]);
+
+  useEffect(() => {
+    const fetchExperience = async () => {
+      const result = await builder.getAll('experience', { options: { noTargeting: true } });
+      setExperience(result);
+    };
+    fetchExperience();
+  }, []);
+
   return (
     <div className="flex justify-center items-center relative min-h-dvh sm:py-8 py-20 px-4 sm:px-[5%]" id="experience">
       <div className='text-center flex xl:flex-row flex-col items-center max-w-[1200px] justify-between xl:gap-8 gap-4'>
@@ -75,8 +89,8 @@ const Experience = () => {
         </div>
         <div className="flex flex-col xl:w-3/5 gap-2 xl:max-h-[600px] 2xl:max-h-[700px] max-h-[400px] overflow-y-auto pb-8">
           {
-            EXPERIENCE.map((exp, index) => (
-              <ExperienceCollapsible key={index} experience={exp} />
+            experience.map((exp, index) => (
+              <ExperienceCollapsible key={index} experience={exp.data} />
             ))
           }
         </div>
