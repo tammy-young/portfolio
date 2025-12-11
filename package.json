@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build:obfuscated": "react-scripts build && javascript-obfuscator build --output build --config javascript-obfuscator.config.json",
+    "build:obfuscated": "react-scripts build && javascript-obfuscator build/static/js --output build/static/js --config javascript-obfuscator.config.json",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
