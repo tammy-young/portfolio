@@ -5,7 +5,7 @@ import Button from '../components/button.js';
 const IntroSection = () => {
   return (
     <div className="px-[5%] flex justify-center relative min-h-dvh w-full" id="intro">
-      <div className='flex xl:flex-row flex-col xl:justify-around justify-center items-center xl:gap-0 gap-5'>
+      <div className='flex xl:flex-row flex-col xl:justify-around justify-center items-center xl:gap-12 gap-5'>
         <div className="flex flex-col justify-center gap-4">
           <div className='dark:text-white'>
             <h4 className="">Nice to meet you,</h4>
@@ -36,9 +36,9 @@ const IntroSection = () => {
         <img
           src="/images/headshot.jpeg"
           alt="Tammy Young"
-          width={380}
-          height={380}
-          className="xl:w-1/3 sm:w-1/2 w-3/4 aspect-square object-cover rounded-full border-4 border-white hover:border-main shadow-xl hover:shadow-main/30 transition-all duration-300"
+          width={400}
+          height={400}
+          className="aspect-square object-cover rounded-full border-4 border-white hover:border-main shadow-xl hover:shadow-main/30 transition-all duration-300"
         ></img>
       </div>
     </div>
