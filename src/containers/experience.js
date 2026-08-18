@@ -43,26 +43,34 @@ function ExperienceCollapsible({ experience }) {
           <div className='text-left dark:text-white'>
             {experience.location} | {formatDuration(experience.start, experience.end)}
           </div>
-          <div className='flex flex-row gap-2 mt-2 dark:text-white'>
-            <h3 className='font-bold'>Skills:</h3>
-            <div className='flex flex-row flex-wrap gap-2'>
-              {
-                experience.skills.map((skill, index) => (
-                  <span key={index} className={`bg-secondary/80 dark:bg-secondary/80 text-black rounded-full px-2 py-1 text-sm font-medium`}>
-                    {skill.name}
-                  </span>
-                ))
-              }
-            </div>
-          </div>
-          <div className='mt-4 text-left dark:text-white'>
-            <h3 className='font-bold'>Responsibilities:</h3>
-            <ul className='list-disc pl-5 marker:text-main dark:marker:text-white'>
-              {experience.responsibilities.map((responsibility, index) => (
-                <li key={index}>{responsibility.text}</li>
-              ))}
-            </ul>
-          </div>
+          {
+            experience.skills ? (
+              <div className='flex flex-row gap-2 mt-2 dark:text-white'>
+                <h3 className='font-bold'>Skills:</h3>
+                <div className='flex flex-row flex-wrap gap-2'>
+                  {
+                    experience.skills.map((skill, index) => (
+                      <span key={index} className={`bg-secondary/80 dark:bg-secondary/80 text-black rounded-full px-2 py-1 text-sm font-medium`}>
+                        {skill.name}
+                      </span>
+                    ))
+                  }
+                </div>
+              </div>
+            ) : null
+          }
+          {
+            experience.responsibilities ? (
+              <div className='mt-4 text-left dark:text-white'>
+                <h3 className='font-bold'>Responsibilities:</h3>
+                <ul className='list-disc pl-5 marker:text-main dark:marker:text-white'>
+                  {experience.responsibilities.map((responsibility, index) => (
+                    <li key={index}>{responsibility.text}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null
+          }
         </div>
       </AccordionDetails>
     </Accordion>
@@ -75,7 +83,8 @@ const Experience = () => {
   useEffect(() => {
     const fetchExperience = async () => {
       const result = await builder.getAll('experience', { options: { noTargeting: true } });
-      setExperience(result);
+      const sortedExperience = result.sort((a, b) => new Date(b.data.start) - new Date(a.data.start));
+      setExperience(sortedExperience);
     };
     fetchExperience();
   }, []);
